@@ -1,6 +1,5 @@
-# template-react-express
-template for building reactjs nodejs app
+# BloomWithoutChangingBackground3D
 
-1. git clone https://github.com/CJMario89/template-react-express.git
-2. cd template-react-express && npm install
+1. git clone https://github.com/CJMario89/BloomWithoutChangingBackground3D.git
+2. cd BloomWithoutChangingBackground3D && npm install
 3. cd client && npm install
