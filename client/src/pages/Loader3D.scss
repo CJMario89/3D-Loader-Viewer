@@ -1,0 +1,206 @@
+:root{
+    --create-position: calc(1vw);
+}
+.loader3D{
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    color: #f0f0f0;
+
+    .title{
+        display: block;
+        text-align: center;
+        font-size: 3vw;
+        padding: 3vw;
+    }
+
+    .importBlock{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+
+
+        .optionTitle{
+            display: block;
+            width: 30%;
+            font-size: 2vw;
+        }
+
+        .optionContainer{
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            width: 50%;
+        }
+
+        .source3D{
+            display: flex;
+            position: relative;
+            width: calc(300px + 50vw);
+            height: 100%;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: flex-start;
+            font-size: 2vw;
+            padding-top: 2%;
+            padding-bottom: 2%;
+    
+            .fileLabel{
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 33%;
+                height: 3.2vw;
+                font-size: 1.5vw;
+                border-radius: 10px;
+                border: dashed 1px #f0f0f0;
+                cursor: pointer;
+                input{
+                    display: none;
+                }
+            }
+
+            span{
+                font-size: 1.5vw;
+                line-height: 1.5vw;
+                margin: 1vw;
+            }
+
+
+            &::after{
+                content: '';
+                display: block;
+                position: absolute;
+                bottom: 0px;
+                width: 100%;
+                height: 1px;
+                background-color: #47AEF9;
+            }
+        }
+    
+        .backgroundColor, .backgroundSize{
+            display: flex;
+            position: relative;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: flex-start;
+            width: calc(300px + 50vw);
+            height: 100%;
+            font-size: 2vw;
+            padding-top: 2%;
+            padding-bottom: 2%;
+
+            label{
+                display: flex;
+                position: relative;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                font-size: 1.5vw;
+                margin-left: 1vw;
+                margin-right: 1vw;
+            }
+    
+            input{
+                display: block;
+                position: relative;
+                height: 2vw;
+                width: 30%;
+                text-align: center;
+                font-size: 1.4vw;
+                border-radius: 10px;
+                color: #f0f0f0;
+                background-color: #3c3c3c;
+                cursor: pointer;
+            }
+
+            &::after{
+                content: '';
+                display: block;
+                position: absolute;
+                bottom: 0px;
+                width: 100%;
+                height: 1px;
+                background-color: #47AEF9;
+            }
+        }
+
+        .backgroundColor input{
+            display: block;
+            height: 3vw;
+        }
+
+
+        .content{
+            display: block;
+            position: absolute;
+            top: 0%;
+            padding-top: 3%;
+            right: 0px;
+            font-size: 1.2vw;
+            height: 2vw;
+            line-height: 2vw;
+            width: auto;
+            text-align: center;
+        }
+
+        .content::after{
+            content: '';
+            position: absolute;
+            top: 75%;
+            right: -2vw;
+            transform: translate(0%, -50%);
+            display: block;
+            width: 0.8vw;
+            padding-top: 0.8vw;
+            height: 0%;
+            border-radius: 50%;
+            background-color: #888888;
+        }
+
+        .content[data-status="selected"]::after{
+            background-color: #47AEF9;
+            box-shadow: 0px 0px 10px #47AEF9;
+        }
+    }
+
+    .createBlock{
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 5vw;
+        margin-top: calc(var(--create-position) + 50px);
+
+        .create{
+            display: flex;
+            position: relative;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 0.5vw 1.5vw;
+            font-size: 1.4vw;
+            background-color: #47AEF9;
+            color: #f0f0f0;
+            border-radius: 10px;
+            cursor: pointer;
+            &:disabled{
+                background-color: #888888;
+            }
+        }
+    }
+
+    .displayer{
+        display: block;
+        position: relative;
+        margin: 0 auto;
+    }
+}
