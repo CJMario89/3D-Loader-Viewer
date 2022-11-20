@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react'
-import Three from '../Three';
+import Render3D from '../Render3D';
 import './Loader3D.scss'
 import { v4 as uuidv4 } from 'uuid';
 import * as dat from 'dat.gui';
+import Slider from '../components/Slider';
 
 
 const Loader3D = () => {
@@ -13,8 +14,9 @@ const Loader3D = () => {
     const canvasDOM = useRef(null);
     const [OBJ3D_data, setOBJ3D_data] = useState({
         background: '#000000',
-        width: window.innerWidth,
-        height: window.innerHeight,
+        background_transparent: false,
+        width: document.documentElement.clientWidth,
+        height: document.documentElement.clientHeight,
         type: '',
         source: ''
     });
@@ -62,6 +64,10 @@ const Loader3D = () => {
         setOBJ3D_data(prev=> ({...prev, height: e.target.value}));
     }
 
+    const onSliderChange = (e)=>{
+        setOBJ3D_data(prev=> ({...prev, background_transparent: e.target.checked}));
+    }
+
     const canCreate = OBJ3D_data.width !== '' && OBJ3D_data.height !== '' && OBJ3D_data.background !== '' && OBJ3D_data.source !== '';
 
 
@@ -79,8 +85,11 @@ const Loader3D = () => {
             }
             gui.current = new dat.GUI();
             const url = URL.createObjectURL(OBJ3D_data.source);
-            Three(OBJ3D_data.type, canvasDOM.current, url, OBJ3D_data.background, 1.2, 0.02, gui.current);
+            Render3D(OBJ3D_data.type, canvasDOM.current, url, OBJ3D_data.background, OBJ3D_data.background_transparent, 1.2, 0.02, gui.current);
+            canvasDOM.current.scrollIntoView({behavior:'smooth'});
         }
+
+        setOBJ3D_data(prev=> ({...prev, width: document.documentElement.clientWidth, height: document.documentElement.clientHeight}))
     }, [canvas])
 
     return (
@@ -107,6 +116,8 @@ const Loader3D = () => {
                     <div className='optionContainer'>
                         <label>Color</label>
                         <input type="color" defaultValue={OBJ3D_data.background} onChange={onBackgroundChange}></input>
+                        <label>Transparent</label>
+                        <Slider onChange={onSliderChange}/>
                         <div className='content' data-status={OBJ3D_data.background !== '' ? 'selected' : 'unselected'}>{OBJ3D_data.background}</div>
                     </div>
                 </div>

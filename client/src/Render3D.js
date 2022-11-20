@@ -1,19 +1,21 @@
-import { ACESFilmicToneMapping, Box3, Color, DirectionalLight, ExtrudeGeometry, Group, Layers, MathUtils, Mesh, MeshBasicMaterial, MeshStandardMaterial, PerspectiveCamera, PlaneGeometry, Scene, ShaderMaterial, Vector2, Vector3, WebGLRenderer } from "three";
+import { ACESFilmicToneMapping, Box3, Color, ExtrudeGeometry, Group, Layers, MathUtils, Mesh, MeshStandardMaterial, PerspectiveCamera, Scene, ShaderMaterial, Vector2, Vector3, WebGLRenderer } from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer"
-import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPass"
+// import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPass"
+import { UnrealBloomPass } from "./TransparentBackgroundFixedUnrealBloomPass"
 import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass";
 import { ShaderPass } from "three/examples/jsm/postprocessing/ShaderPass";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader"
 import { SVGLoader } from "three/examples/jsm/loaders/SVGLoader"
 
-const Three = (type='gltf', DOM, URL, background, bloomStrength, bloomRadius, gui) => {
+const Render3D = (type='gltf', DOM, URL, background=0x000000, background_transparent=false, bloomStrength=1, bloomRadius=0.01, gui) => {
 
     let object3D; 
     let mousedown = false;
     let lastMouseX, lastMouseY;
     const disCameraToObject = 20;
     const disObjectToBackground = 10;
+
 
     //bloom object setup
     const ENTIRE_SCENE = 0, BLOOM_SCENE = 1;
@@ -43,22 +45,20 @@ const Three = (type='gltf', DOM, URL, background, bloomStrength, bloomRadius, gu
     );
 
     const renderer = new WebGLRenderer({
-        alpha: true,
+        alpha: background_transparent,
         canvas: DOM
     });
 
     renderer.setSize(canvasWidth, canvasHeight);
     renderer.toneMapping = ACESFilmicToneMapping
-    renderer.setClearColor(background);
+    renderer.setClearColor(0xffffff, (background_transparent === false ? 1 : 0));
 
     const controls = new OrbitControls(camera, renderer.domElement);
-
     controls.enabled = false;
+    camera.position.z = disCameraToObject;
+    camera.position.x = 0;
+    camera.position.y = 0;
 
-
-    const directionalLight = new DirectionalLight( 0xffffff, 0.5 );
-    directionalLight.position.z = 1;
-    scene.add( directionalLight );
 
 
 
@@ -169,10 +169,6 @@ const Three = (type='gltf', DOM, URL, background, bloomStrength, bloomRadius, gu
     finalComposer.addPass(shaderPass);
 
 
-    camera.position.z = disCameraToObject;
-    camera.position.x = 0;
-    camera.position.y = 0;
-
 
     function darkenNonBloomed( obj ) {
         if ( obj.isMesh && bloomLayer.test( obj.layers ) === false ) {
@@ -190,10 +186,10 @@ const Three = (type='gltf', DOM, URL, background, bloomStrength, bloomRadius, gu
 
     const animate = function () {
         scene.traverse( darkenNonBloomed );
-        renderer.setClearColor("black")
+        renderer.setClearColor("black", (background_transparent === false ? 1 : 0))
         bloomComposer.render();
         scene.traverse( restoreMaterial );
-        renderer.setClearColor(background);
+        renderer.setClearColor(background, (background_transparent === false ? 1 : 0));
         finalComposer.render();
     };
 
@@ -217,6 +213,7 @@ const Three = (type='gltf', DOM, URL, background, bloomStrength, bloomRadius, gu
         if(object3D !== null && mousedown == true && Math.abs(pointerX - lastMouseX) < 0.1 && Math.abs(pointerY - lastMouseY) < 0.1){
             object3D.rotation.y += (pointerX - lastMouseX) * Math.PI;
             object3D.rotation.x += (pointerY - lastMouseY) * Math.PI;
+            console.log(object3D.rotation)
             animate();
         }
 
@@ -225,56 +222,59 @@ const Three = (type='gltf', DOM, URL, background, bloomStrength, bloomRadius, gu
     })
 
 
-    const bloomFolder = gui.addFolder('Bloom');
 
-    
+    if(gui !== null){
 
-    bloomFolder.add(bloomParams, 'bloom', 0.1, 2).onChange((value)=>{
-        const layer = value ? 1 : 0;
-        scene.getObjectByName("object3D").traverse((child)=>{
-            child.layers.set(0);
-            child.layers.enable(layer);
+        const bloomFolder = gui.addFolder('Bloom');
+
+        
+
+        bloomFolder.add(bloomParams, 'bloom', 0.1, 2).onChange((value)=>{
+            const layer = value ? 1 : 0;
+            scene.getObjectByName("object3D").traverse((child)=>{
+                child.layers.set(0);
+                child.layers.enable(layer);
+            })
+            animate();
         })
-        animate();
-    })
 
-    bloomFolder.add(bloomParams, 'emissive').onChange((value)=>{
-        scene.getObjectByName("object3D").traverse((child)=>{
-            if(child.isMesh){
-                child.material.emissive = new Color(value);
-            }
+        bloomFolder.add(bloomParams, 'emissive').onChange((value)=>{
+            scene.getObjectByName("object3D").traverse((child)=>{
+                if(child.isMesh){
+                    child.material.emissive = new Color(value);
+                }
+            })
+            animate();
+        } );
+
+        bloomFolder.add(bloomParams, 'bloomThreshold', 0.0, 1.0 ).onChange((value)=>{
+            bloomPass.threshold = Number( value );
+            animate();
+        } );
+
+        bloomFolder.add(bloomParams, 'bloomStrength', 0.0, 5.0 ).onChange((value)=>{
+            bloomPass.strength = Number( value );
+            animate();
+        } );
+
+        bloomFolder.add(bloomParams, 'bloomRadius', 0.0, 1.0 ).step( 0.01 ).onChange((value)=>{
+            bloomPass.radius = Number( value );
+            animate();
+        } );
+
+        bloomFolder.add(bloomParams, 'exposure', 0.1, 2 ).onChange((value)=>{
+            renderer.toneMappingExposure = Math.pow(value, 4.0);
+            animate();
+        } );
+
+        const cameraFolder = gui.addFolder('camera');
+        cameraFolder.add(camera.position, 'z', 1, 100).step(0.01).onChange((value)=>{
+            camera.position.z = value;
+            animate();
         })
-        animate();
-    } );
-
-    bloomFolder.add(bloomParams, 'bloomThreshold', 0.0, 1.0 ).onChange((value)=>{
-        bloomPass.threshold = Number( value );
-        animate();
-    } );
-
-    bloomFolder.add(bloomParams, 'bloomStrength', 0.0, 5.0 ).onChange((value)=>{
-        bloomPass.strength = Number( value );
-        animate();
-    } );
-
-    bloomFolder.add(bloomParams, 'bloomRadius', 0.0, 1.0 ).step( 0.01 ).onChange((value)=>{
-        bloomPass.radius = Number( value );
-        animate();
-    } );
-
-    bloomFolder.add(bloomParams, 'exposure', 0.1, 2 ).onChange((value)=>{
-        renderer.toneMappingExposure = Math.pow(value, 4.0);
-        animate();
-    } );
-
-    const cameraFolder = gui.addFolder('camera');
-    cameraFolder.add(camera.position, 'z', 1, 40).step(0.01).onChange((value)=>{
-        camera.position.z = value;
-        animate();
-    })
-    
+    }
 }
 
 
 
-export default Three
+export default Render3D

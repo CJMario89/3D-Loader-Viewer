@@ -5465,10 +5465,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _App_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./App.scss */ "./src/App.scss");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
 /* harmony import */ var _pages_Loader3D__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pages/Loader3D */ "./src/pages/Loader3D.jsx");
-/* harmony import */ var _Three__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Three */ "./src/Three.jsx");
-
 
 
 
@@ -5476,9 +5474,9 @@ __webpack_require__.r(__webpack_exports__);
 var App = function App() {
   // Three('svg', document.body, './logo.svg', 0x3D4B64, 20, 10, 0.6, 0.1, 1, 0xaa0022);
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Routes, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Route, {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Routes, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Route, {
     path: "/"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Route, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Route, {
     index: true,
     element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_pages_Loader3D__WEBPACK_IMPORTED_MODULE_2__["default"], null)
   })));
@@ -5487,10 +5485,10 @@ var App = function App() {
 
 /***/ }),
 
-/***/ "./src/Three.jsx":
-/*!***********************!*\
-  !*** ./src/Three.jsx ***!
-  \***********************/
+/***/ "./src/Render3D.js":
+/*!*************************!*\
+  !*** ./src/Render3D.js ***!
+  \*************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -5500,31 +5498,34 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_corejs3_core_js_stable_instance_for_each__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs3/core-js-stable/instance/for-each */ "./node_modules/@babel/runtime-corejs3/core-js-stable/instance/for-each.js");
 /* harmony import */ var _babel_runtime_corejs3_core_js_stable_instance_for_each__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs3_core_js_stable_instance_for_each__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! three */ "./node_modules/three/build/three.module.js");
-/* harmony import */ var three_examples_jsm_controls_OrbitControls__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! three/examples/jsm/controls/OrbitControls */ "./node_modules/three/examples/jsm/controls/OrbitControls.js");
+/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! three */ "./node_modules/three/build/three.module.js");
+/* harmony import */ var three_examples_jsm_controls_OrbitControls__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! three/examples/jsm/controls/OrbitControls */ "./node_modules/three/examples/jsm/controls/OrbitControls.js");
 /* harmony import */ var three_examples_jsm_postprocessing_EffectComposer__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! three/examples/jsm/postprocessing/EffectComposer */ "./node_modules/three/examples/jsm/postprocessing/EffectComposer.js");
-/* harmony import */ var three_examples_jsm_postprocessing_UnrealBloomPass__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! three/examples/jsm/postprocessing/UnrealBloomPass */ "./node_modules/three/examples/jsm/postprocessing/UnrealBloomPass.js");
+/* harmony import */ var _TransparentBackgroundFixedUnrealBloomPass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TransparentBackgroundFixedUnrealBloomPass */ "./src/TransparentBackgroundFixedUnrealBloomPass.js");
 /* harmony import */ var three_examples_jsm_postprocessing_RenderPass__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! three/examples/jsm/postprocessing/RenderPass */ "./node_modules/three/examples/jsm/postprocessing/RenderPass.js");
 /* harmony import */ var three_examples_jsm_postprocessing_ShaderPass__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! three/examples/jsm/postprocessing/ShaderPass */ "./node_modules/three/examples/jsm/postprocessing/ShaderPass.js");
-/* harmony import */ var three_examples_jsm_loaders_GLTFLoader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! three/examples/jsm/loaders/GLTFLoader */ "./node_modules/three/examples/jsm/loaders/GLTFLoader.js");
-/* harmony import */ var three_examples_jsm_loaders_SVGLoader__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! three/examples/jsm/loaders/SVGLoader */ "./node_modules/three/examples/jsm/loaders/SVGLoader.js");
+/* harmony import */ var three_examples_jsm_loaders_GLTFLoader__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! three/examples/jsm/loaders/GLTFLoader */ "./node_modules/three/examples/jsm/loaders/GLTFLoader.js");
+/* harmony import */ var three_examples_jsm_loaders_SVGLoader__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! three/examples/jsm/loaders/SVGLoader */ "./node_modules/three/examples/jsm/loaders/SVGLoader.js");
+/* provided dependency */ var console = __webpack_require__(/*! ./node_modules/console-browserify/index.js */ "./node_modules/console-browserify/index.js");
+
+
+
+
+// import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPass"
 
 
 
 
 
-
-
-
-
-var Three = function Three() {
+var Render3D = function Render3D() {
   var type = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'gltf';
   var DOM = arguments.length > 1 ? arguments[1] : undefined;
   var URL = arguments.length > 2 ? arguments[2] : undefined;
-  var background = arguments.length > 3 ? arguments[3] : undefined;
-  var bloomStrength = arguments.length > 4 ? arguments[4] : undefined;
-  var bloomRadius = arguments.length > 5 ? arguments[5] : undefined;
-  var gui = arguments.length > 6 ? arguments[6] : undefined;
+  var background = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 0x000000;
+  var background_transparent = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : false;
+  var bloomStrength = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : 1;
+  var bloomRadius = arguments.length > 6 && arguments[6] !== undefined ? arguments[6] : 0.01;
+  var gui = arguments.length > 7 ? arguments[7] : undefined;
   var object3D;
   var mousedown = false;
   var lastMouseX, lastMouseY;
@@ -5534,11 +5535,11 @@ var Three = function Three() {
   //bloom object setup
   var ENTIRE_SCENE = 0,
     BLOOM_SCENE = 1;
-  var darkMaterial = new three__WEBPACK_IMPORTED_MODULE_1__.MeshStandardMaterial({
+  var darkMaterial = new three__WEBPACK_IMPORTED_MODULE_2__.MeshStandardMaterial({
     color: 'black'
   });
   var materials = {};
-  var bloomLayer = new three__WEBPACK_IMPORTED_MODULE_1__.Layers();
+  var bloomLayer = new three__WEBPACK_IMPORTED_MODULE_2__.Layers();
   bloomLayer.set(BLOOM_SCENE);
   var bloomParams = {
     bloom: true,
@@ -5552,25 +5553,25 @@ var Three = function Three() {
   //scene and camera
   var canvasWidth = DOM.clientWidth;
   var canvasHeight = DOM.clientHeight;
-  var scene = new three__WEBPACK_IMPORTED_MODULE_1__.Scene();
-  var camera = new three__WEBPACK_IMPORTED_MODULE_1__.PerspectiveCamera(75, canvasWidth / canvasHeight, 0.1, 1000);
-  var renderer = new three__WEBPACK_IMPORTED_MODULE_1__.WebGLRenderer({
-    alpha: true,
+  var scene = new three__WEBPACK_IMPORTED_MODULE_2__.Scene();
+  var camera = new three__WEBPACK_IMPORTED_MODULE_2__.PerspectiveCamera(75, canvasWidth / canvasHeight, 0.1, 1000);
+  var renderer = new three__WEBPACK_IMPORTED_MODULE_2__.WebGLRenderer({
+    alpha: background_transparent,
     canvas: DOM
   });
   renderer.setSize(canvasWidth, canvasHeight);
-  renderer.toneMapping = three__WEBPACK_IMPORTED_MODULE_1__.ACESFilmicToneMapping;
-  renderer.setClearColor(background);
-  var controls = new three_examples_jsm_controls_OrbitControls__WEBPACK_IMPORTED_MODULE_2__.OrbitControls(camera, renderer.domElement);
+  renderer.toneMapping = three__WEBPACK_IMPORTED_MODULE_2__.ACESFilmicToneMapping;
+  renderer.setClearColor(0xffffff, background_transparent === false ? 1 : 0);
+  var controls = new three_examples_jsm_controls_OrbitControls__WEBPACK_IMPORTED_MODULE_3__.OrbitControls(camera, renderer.domElement);
   controls.enabled = false;
-  var directionalLight = new three__WEBPACK_IMPORTED_MODULE_1__.DirectionalLight(0xffffff, 0.5);
-  directionalLight.position.z = 1;
-  scene.add(directionalLight);
+  camera.position.z = disCameraToObject;
+  camera.position.x = 0;
+  camera.position.y = 0;
   if (type === 'gltf') {
-    new three_examples_jsm_loaders_GLTFLoader__WEBPACK_IMPORTED_MODULE_3__.GLTFLoader().load(URL, function (gltf) {
+    new three_examples_jsm_loaders_GLTFLoader__WEBPACK_IMPORTED_MODULE_4__.GLTFLoader().load(URL, function (gltf) {
       gltf.scene.traverse(function (obj) {
         if (obj.isMesh) {
-          obj.material.emissive = new three__WEBPACK_IMPORTED_MODULE_1__.Color(bloomParams.emissive);
+          obj.material.emissive = new three__WEBPACK_IMPORTED_MODULE_2__.Color(bloomParams.emissive);
           obj.layers.enable(BLOOM_SCENE);
         }
       });
@@ -5581,29 +5582,29 @@ var Three = function Three() {
     });
   }
   if (type === 'svg') {
-    new three_examples_jsm_loaders_SVGLoader__WEBPACK_IMPORTED_MODULE_4__.SVGLoader().load(URL, function (data) {
+    new three_examples_jsm_loaders_SVGLoader__WEBPACK_IMPORTED_MODULE_5__.SVGLoader().load(URL, function (data) {
       var paths = data.paths;
-      var material = new three__WEBPACK_IMPORTED_MODULE_1__.MeshStandardMaterial({
+      var material = new three__WEBPACK_IMPORTED_MODULE_2__.MeshStandardMaterial({
         emissive: bloomParams.emissive
       });
-      var groups = new three__WEBPACK_IMPORTED_MODULE_1__.Group();
+      var groups = new three__WEBPACK_IMPORTED_MODULE_2__.Group();
       _babel_runtime_corejs3_core_js_stable_instance_for_each__WEBPACK_IMPORTED_MODULE_0___default()(paths).call(paths, function (path) {
-        var shapes = three_examples_jsm_loaders_SVGLoader__WEBPACK_IMPORTED_MODULE_4__.SVGLoader.createShapes(path);
+        var shapes = three_examples_jsm_loaders_SVGLoader__WEBPACK_IMPORTED_MODULE_5__.SVGLoader.createShapes(path);
         _babel_runtime_corejs3_core_js_stable_instance_for_each__WEBPACK_IMPORTED_MODULE_0___default()(shapes).call(shapes, function (shape) {
-          var geometry = new three__WEBPACK_IMPORTED_MODULE_1__.ExtrudeGeometry(shape, {
+          var geometry = new three__WEBPACK_IMPORTED_MODULE_2__.ExtrudeGeometry(shape, {
             depth: 2,
             bevelEnabled: false
           });
           geometry.center();
-          var mesh = new three__WEBPACK_IMPORTED_MODULE_1__.Mesh(geometry, material);
+          var mesh = new three__WEBPACK_IMPORTED_MODULE_2__.Mesh(geometry, material);
           mesh.layers.enable(BLOOM_SCENE);
           groups.add(mesh);
         });
       });
-      var box = new three__WEBPACK_IMPORTED_MODULE_1__.Box3().setFromObject(groups);
-      var size = new three__WEBPACK_IMPORTED_MODULE_1__.Vector3();
+      var box = new three__WEBPACK_IMPORTED_MODULE_2__.Box3().setFromObject(groups);
+      var size = new three__WEBPACK_IMPORTED_MODULE_2__.Vector3();
       box.getSize(size);
-      var vFOV = three__WEBPACK_IMPORTED_MODULE_1__.MathUtils.degToRad(camera.fov); // convert vertical fov to radians
+      var vFOV = three__WEBPACK_IMPORTED_MODULE_2__.MathUtils.degToRad(camera.fov); // convert vertical fov to radians
       var background_height = 2 * Math.tan(vFOV / 2) * (disCameraToObject + disObjectToBackground); // visible height at distance * from camera
       var background_width = background_height * camera.aspect; // visible width
 
@@ -5617,7 +5618,7 @@ var Three = function Three() {
       animate();
     });
   }
-  var bloomPass = new three_examples_jsm_postprocessing_UnrealBloomPass__WEBPACK_IMPORTED_MODULE_5__.UnrealBloomPass(new three__WEBPACK_IMPORTED_MODULE_1__.Vector2(canvasWidth, canvasHeight));
+  var bloomPass = new _TransparentBackgroundFixedUnrealBloomPass__WEBPACK_IMPORTED_MODULE_1__.UnrealBloomPass(new three__WEBPACK_IMPORTED_MODULE_2__.Vector2(canvasWidth, canvasHeight));
   bloomPass.threshold = bloomParams.bloomThreshold;
   bloomPass.strength = bloomParams.bloomStrength;
   bloomPass.radius = bloomParams.bloomRadius;
@@ -5626,7 +5627,7 @@ var Three = function Three() {
   bloomComposer.renderToScreen = false;
   bloomComposer.addPass(renderPass);
   bloomComposer.addPass(bloomPass);
-  var shaderPass = new three_examples_jsm_postprocessing_ShaderPass__WEBPACK_IMPORTED_MODULE_8__.ShaderPass(new three__WEBPACK_IMPORTED_MODULE_1__.ShaderMaterial({
+  var shaderPass = new three_examples_jsm_postprocessing_ShaderPass__WEBPACK_IMPORTED_MODULE_8__.ShaderPass(new three__WEBPACK_IMPORTED_MODULE_2__.ShaderMaterial({
     uniforms: {
       baseTexture: {
         value: null
@@ -5643,9 +5644,6 @@ var Three = function Three() {
   var finalComposer = new three_examples_jsm_postprocessing_EffectComposer__WEBPACK_IMPORTED_MODULE_7__.EffectComposer(renderer);
   finalComposer.addPass(renderPass);
   finalComposer.addPass(shaderPass);
-  camera.position.z = disCameraToObject;
-  camera.position.x = 0;
-  camera.position.y = 0;
   function darkenNonBloomed(obj) {
     if (obj.isMesh && bloomLayer.test(obj.layers) === false) {
       materials[obj.uuid] = obj.material;
@@ -5660,10 +5658,10 @@ var Three = function Three() {
   }
   var animate = function animate() {
     scene.traverse(darkenNonBloomed);
-    renderer.setClearColor("black");
+    renderer.setClearColor("black", background_transparent === false ? 1 : 0);
     bloomComposer.render();
     scene.traverse(restoreMaterial);
-    renderer.setClearColor(background);
+    renderer.setClearColor(background, background_transparent === false ? 1 : 0);
     finalComposer.render();
   };
   controls.addEventListener("change", animate);
@@ -5685,51 +5683,472 @@ var Three = function Three() {
     if (object3D !== null && mousedown == true && Math.abs(pointerX - lastMouseX) < 0.1 && Math.abs(pointerY - lastMouseY) < 0.1) {
       object3D.rotation.y += (pointerX - lastMouseX) * Math.PI;
       object3D.rotation.x += (pointerY - lastMouseY) * Math.PI;
+      console.log(object3D.rotation);
       animate();
     }
     lastMouseX = pointerX;
     lastMouseY = pointerY;
   });
-  var bloomFolder = gui.addFolder('Bloom');
-  bloomFolder.add(bloomParams, 'bloom', 0.1, 2).onChange(function (value) {
-    var layer = value ? 1 : 0;
-    scene.getObjectByName("object3D").traverse(function (child) {
-      child.layers.set(0);
-      child.layers.enable(layer);
+  if (gui !== null) {
+    var bloomFolder = gui.addFolder('Bloom');
+    bloomFolder.add(bloomParams, 'bloom', 0.1, 2).onChange(function (value) {
+      var layer = value ? 1 : 0;
+      scene.getObjectByName("object3D").traverse(function (child) {
+        child.layers.set(0);
+        child.layers.enable(layer);
+      });
+      animate();
     });
-    animate();
-  });
-  bloomFolder.add(bloomParams, 'emissive').onChange(function (value) {
-    scene.getObjectByName("object3D").traverse(function (child) {
-      if (child.isMesh) {
-        child.material.emissive = new three__WEBPACK_IMPORTED_MODULE_1__.Color(value);
-      }
+    bloomFolder.add(bloomParams, 'emissive').onChange(function (value) {
+      scene.getObjectByName("object3D").traverse(function (child) {
+        if (child.isMesh) {
+          child.material.emissive = new three__WEBPACK_IMPORTED_MODULE_2__.Color(value);
+        }
+      });
+      animate();
     });
-    animate();
-  });
-  bloomFolder.add(bloomParams, 'bloomThreshold', 0.0, 1.0).onChange(function (value) {
-    bloomPass.threshold = Number(value);
-    animate();
-  });
-  bloomFolder.add(bloomParams, 'bloomStrength', 0.0, 5.0).onChange(function (value) {
-    bloomPass.strength = Number(value);
-    animate();
-  });
-  bloomFolder.add(bloomParams, 'bloomRadius', 0.0, 1.0).step(0.01).onChange(function (value) {
-    bloomPass.radius = Number(value);
-    animate();
-  });
-  bloomFolder.add(bloomParams, 'exposure', 0.1, 2).onChange(function (value) {
-    renderer.toneMappingExposure = Math.pow(value, 4.0);
-    animate();
-  });
-  var cameraFolder = gui.addFolder('camera');
-  cameraFolder.add(camera.position, 'z', 1, 40).step(0.01).onChange(function (value) {
-    camera.position.z = value;
-    animate();
-  });
+    bloomFolder.add(bloomParams, 'bloomThreshold', 0.0, 1.0).onChange(function (value) {
+      bloomPass.threshold = Number(value);
+      animate();
+    });
+    bloomFolder.add(bloomParams, 'bloomStrength', 0.0, 5.0).onChange(function (value) {
+      bloomPass.strength = Number(value);
+      animate();
+    });
+    bloomFolder.add(bloomParams, 'bloomRadius', 0.0, 1.0).step(0.01).onChange(function (value) {
+      bloomPass.radius = Number(value);
+      animate();
+    });
+    bloomFolder.add(bloomParams, 'exposure', 0.1, 2).onChange(function (value) {
+      renderer.toneMappingExposure = Math.pow(value, 4.0);
+      animate();
+    });
+    var cameraFolder = gui.addFolder('camera');
+    cameraFolder.add(camera.position, 'z', 1, 100).step(0.01).onChange(function (value) {
+      camera.position.z = value;
+      animate();
+    });
+  }
 };
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Three);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Render3D);
+
+/***/ }),
+
+/***/ "./src/TransparentBackgroundFixedUnrealBloomPass.js":
+/*!**********************************************************!*\
+  !*** ./src/TransparentBackgroundFixedUnrealBloomPass.js ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "UnrealBloomPass": () => (/* binding */ TransparentBackgroundFixedUnrealBloomPass)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_corejs3_core_js_stable_reflect_construct__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs3/core-js-stable/reflect/construct */ "./node_modules/@babel/runtime-corejs3/core-js-stable/reflect/construct.js");
+/* harmony import */ var _babel_runtime_corejs3_core_js_stable_reflect_construct__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs3_core_js_stable_reflect_construct__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_corejs3_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs3/helpers/classCallCheck */ "./node_modules/@babel/runtime-corejs3/helpers/esm/classCallCheck.js");
+/* harmony import */ var _babel_runtime_corejs3_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime-corejs3/helpers/createClass */ "./node_modules/@babel/runtime-corejs3/helpers/esm/createClass.js");
+/* harmony import */ var _babel_runtime_corejs3_helpers_inherits__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime-corejs3/helpers/inherits */ "./node_modules/@babel/runtime-corejs3/helpers/esm/inherits.js");
+/* harmony import */ var _babel_runtime_corejs3_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime-corejs3/helpers/possibleConstructorReturn */ "./node_modules/@babel/runtime-corejs3/helpers/esm/possibleConstructorReturn.js");
+/* harmony import */ var _babel_runtime_corejs3_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime-corejs3/helpers/getPrototypeOf */ "./node_modules/@babel/runtime-corejs3/helpers/esm/getPrototypeOf.js");
+/* harmony import */ var _babel_runtime_corejs3_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @babel/runtime-corejs3/helpers/defineProperty */ "./node_modules/@babel/runtime-corejs3/helpers/esm/defineProperty.js");
+/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! three */ "./node_modules/three/build/three.module.js");
+/* harmony import */ var three_examples_jsm_postprocessing_Pass__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! three/examples/jsm/postprocessing/Pass */ "./node_modules/three/examples/jsm/postprocessing/Pass.js");
+/* harmony import */ var three_examples_jsm_shaders_CopyShader_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! three/examples/jsm/shaders/CopyShader.js */ "./node_modules/three/examples/jsm/shaders/CopyShader.js");
+/* harmony import */ var three_examples_jsm_shaders_LuminosityHighPassShader_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! three/examples/jsm/shaders/LuminosityHighPassShader.js */ "./node_modules/three/examples/jsm/shaders/LuminosityHighPassShader.js");
+/* provided dependency */ var console = __webpack_require__(/*! ./node_modules/console-browserify/index.js */ "./node_modules/console-browserify/index.js");
+
+
+
+
+
+
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0,_babel_runtime_corejs3_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0,_babel_runtime_corejs3_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(this).constructor; result = _babel_runtime_corejs3_core_js_stable_reflect_construct__WEBPACK_IMPORTED_MODULE_0___default()(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0,_babel_runtime_corejs3_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__["default"])(this, result); }; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !(_babel_runtime_corejs3_core_js_stable_reflect_construct__WEBPACK_IMPORTED_MODULE_0___default())) return false; if ((_babel_runtime_corejs3_core_js_stable_reflect_construct__WEBPACK_IMPORTED_MODULE_0___default().sham)) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(_babel_runtime_corejs3_core_js_stable_reflect_construct__WEBPACK_IMPORTED_MODULE_0___default()(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+
+
+// typescript definitions doesn't have FullScreenQuad
+//@ts-ignore
+
+
+
+
+/**
+ * Thanks to https://github.com/mrdoob/three.js/issues/14104#issuecomment-429664412 for this fragmentShaderfix
+ * 
+ * UnrealBloomPass is inspired by the bloom pass of Unreal Engine. It creates a
+ * mip map chain of bloom textures and blurs them with different radii. Because
+ * of the weighted combination of mips, and because larger blurs are done on
+ * higher mips, this effect provides good quality and performance.
+ *
+ * Reference:
+ * - https://docs.unrealengine.com/latest/INT/Engine/Rendering/PostProcessEffects/Bloom/
+ */
+var TransparentBackgroundFixedUnrealBloomPass = /*#__PURE__*/function (_Pass) {
+  (0,_babel_runtime_corejs3_helpers_inherits__WEBPACK_IMPORTED_MODULE_3__["default"])(TransparentBackgroundFixedUnrealBloomPass, _Pass);
+  var _super = _createSuper(TransparentBackgroundFixedUnrealBloomPass);
+  function TransparentBackgroundFixedUnrealBloomPass(resolution, strength, radius, threshold) {
+    var _this;
+    (0,_babel_runtime_corejs3_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, TransparentBackgroundFixedUnrealBloomPass);
+    _this = _super.call(this);
+    _this.strength = strength !== undefined ? strength : 1;
+    _this.radius = radius;
+    _this.threshold = threshold;
+    _this.resolution = resolution !== undefined ? new three__WEBPACK_IMPORTED_MODULE_7__.Vector2(resolution.x, resolution.y) : new three__WEBPACK_IMPORTED_MODULE_7__.Vector2(256, 256);
+
+    // create color only once here, reuse it later inside the render function
+    _this.clearColor = new three__WEBPACK_IMPORTED_MODULE_7__.Color(0, 0, 0);
+
+    // render targets
+    var pars = {
+      minFilter: three__WEBPACK_IMPORTED_MODULE_7__.LinearFilter,
+      magFilter: three__WEBPACK_IMPORTED_MODULE_7__.LinearFilter,
+      format: three__WEBPACK_IMPORTED_MODULE_7__.RGBAFormat
+    };
+    _this.renderTargetsHorizontal = [];
+    _this.renderTargetsVertical = [];
+    _this.nMips = 5;
+    var resx = Math.round(_this.resolution.x / 2);
+    var resy = Math.round(_this.resolution.y / 2);
+    _this.renderTargetBright = new three__WEBPACK_IMPORTED_MODULE_7__.WebGLRenderTarget(resx, resy, pars);
+    _this.renderTargetBright.texture.name = "UnrealBloomPass.bright";
+    _this.renderTargetBright.texture.generateMipmaps = false;
+    for (var i = 0; i < _this.nMips; i++) {
+      var renderTargetHorizonal = new three__WEBPACK_IMPORTED_MODULE_7__.WebGLRenderTarget(resx, resy, pars);
+      renderTargetHorizonal.texture.name = "UnrealBloomPass.h" + i;
+      renderTargetHorizonal.texture.generateMipmaps = false;
+      _this.renderTargetsHorizontal.push(renderTargetHorizonal);
+      var renderTargetVertical = new three__WEBPACK_IMPORTED_MODULE_7__.WebGLRenderTarget(resx, resy, pars);
+      renderTargetVertical.texture.name = "UnrealBloomPass.v" + i;
+      renderTargetVertical.texture.generateMipmaps = false;
+      _this.renderTargetsVertical.push(renderTargetVertical);
+      resx = Math.round(resx / 2);
+      resy = Math.round(resy / 2);
+    }
+
+    // luminosity high pass material
+
+    if (three_examples_jsm_shaders_LuminosityHighPassShader_js__WEBPACK_IMPORTED_MODULE_8__.LuminosityHighPassShader === undefined) console.error("THREE.UnrealBloomPass relies on LuminosityHighPassShader");
+    var highPassShader = three_examples_jsm_shaders_LuminosityHighPassShader_js__WEBPACK_IMPORTED_MODULE_8__.LuminosityHighPassShader;
+    _this.highPassUniforms = three__WEBPACK_IMPORTED_MODULE_7__.UniformsUtils.clone(highPassShader.uniforms);
+    _this.highPassUniforms["luminosityThreshold"].value = threshold;
+    _this.highPassUniforms["smoothWidth"].value = 0.01;
+    _this.materialHighPassFilter = new three__WEBPACK_IMPORTED_MODULE_7__.ShaderMaterial({
+      uniforms: _this.highPassUniforms,
+      vertexShader: highPassShader.vertexShader,
+      fragmentShader: highPassShader.fragmentShader,
+      defines: {}
+    });
+
+    // Gaussian Blur Materials
+    _this.separableBlurMaterials = [];
+    var kernelSizeArray = [3, 5, 7, 9, 11];
+    resx = Math.round(_this.resolution.x / 2);
+    resy = Math.round(_this.resolution.y / 2);
+    for (var _i = 0; _i < _this.nMips; _i++) {
+      _this.separableBlurMaterials.push(_this.getSeperableBlurMaterial(kernelSizeArray[_i]));
+      _this.separableBlurMaterials[_i].uniforms["texSize"].value = new three__WEBPACK_IMPORTED_MODULE_7__.Vector2(resx, resy);
+      resx = Math.round(resx / 2);
+      resy = Math.round(resy / 2);
+    }
+
+    // Composite material
+    _this.compositeMaterial = _this.getCompositeMaterial(_this.nMips);
+    _this.compositeMaterial.uniforms["blurTexture1"].value = _this.renderTargetsVertical[0].texture;
+    _this.compositeMaterial.uniforms["blurTexture2"].value = _this.renderTargetsVertical[1].texture;
+    _this.compositeMaterial.uniforms["blurTexture3"].value = _this.renderTargetsVertical[2].texture;
+    _this.compositeMaterial.uniforms["blurTexture4"].value = _this.renderTargetsVertical[3].texture;
+    _this.compositeMaterial.uniforms["blurTexture5"].value = _this.renderTargetsVertical[4].texture;
+    _this.compositeMaterial.uniforms["bloomStrength"].value = strength;
+    _this.compositeMaterial.uniforms["bloomRadius"].value = 0.1;
+    _this.compositeMaterial.needsUpdate = true;
+    var bloomFactors = [1.0, 0.8, 0.6, 0.4, 0.2];
+    _this.compositeMaterial.uniforms["bloomFactors"].value = bloomFactors;
+    _this.bloomTintColors = [new three__WEBPACK_IMPORTED_MODULE_7__.Vector3(1, 1, 1), new three__WEBPACK_IMPORTED_MODULE_7__.Vector3(1, 1, 1), new three__WEBPACK_IMPORTED_MODULE_7__.Vector3(1, 1, 1), new three__WEBPACK_IMPORTED_MODULE_7__.Vector3(1, 1, 1), new three__WEBPACK_IMPORTED_MODULE_7__.Vector3(1, 1, 1)];
+    _this.compositeMaterial.uniforms["bloomTintColors"].value = _this.bloomTintColors;
+
+    // copy material
+    if (three_examples_jsm_shaders_CopyShader_js__WEBPACK_IMPORTED_MODULE_9__.CopyShader === undefined) {
+      console.error("THREE.UnrealBloomPass relies on CopyShader");
+    }
+    var copyShader = three_examples_jsm_shaders_CopyShader_js__WEBPACK_IMPORTED_MODULE_9__.CopyShader;
+    _this.copyUniforms = three__WEBPACK_IMPORTED_MODULE_7__.UniformsUtils.clone(copyShader.uniforms);
+    _this.copyUniforms["opacity"].value = 1.0;
+    _this.materialCopy = new three__WEBPACK_IMPORTED_MODULE_7__.ShaderMaterial({
+      uniforms: _this.copyUniforms,
+      vertexShader: copyShader.vertexShader,
+      fragmentShader: copyShader.fragmentShader,
+      blending: three__WEBPACK_IMPORTED_MODULE_7__.AdditiveBlending,
+      depthTest: false,
+      depthWrite: false,
+      transparent: true
+    });
+    _this.enabled = true;
+    _this.needsSwap = false;
+    _this._oldClearColor = new three__WEBPACK_IMPORTED_MODULE_7__.Color();
+    _this.oldClearAlpha = 1;
+    _this.basic = new three__WEBPACK_IMPORTED_MODULE_7__.MeshBasicMaterial();
+    _this.fsQuad = new three_examples_jsm_postprocessing_Pass__WEBPACK_IMPORTED_MODULE_10__.FullScreenQuad(null);
+    return _this;
+  }
+  (0,_babel_runtime_corejs3_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(TransparentBackgroundFixedUnrealBloomPass, [{
+    key: "dispose",
+    value: function dispose() {
+      for (var i = 0; i < this.renderTargetsHorizontal.length; i++) {
+        this.renderTargetsHorizontal[i].dispose();
+      }
+      for (var _i2 = 0; _i2 < this.renderTargetsVertical.length; _i2++) {
+        this.renderTargetsVertical[_i2].dispose();
+      }
+      this.renderTargetBright.dispose();
+    }
+  }, {
+    key: "setSize",
+    value: function setSize(width, height) {
+      var resx = Math.round(width / 2);
+      var resy = Math.round(height / 2);
+      this.renderTargetBright.setSize(resx, resy);
+      for (var i = 0; i < this.nMips; i++) {
+        this.renderTargetsHorizontal[i].setSize(resx, resy);
+        this.renderTargetsVertical[i].setSize(resx, resy);
+        this.separableBlurMaterials[i].uniforms["texSize"].value = new three__WEBPACK_IMPORTED_MODULE_7__.Vector2(resx, resy);
+        resx = Math.round(resx / 2);
+        resy = Math.round(resy / 2);
+      }
+    }
+  }, {
+    key: "render",
+    value: function render(renderer, writeBuffer, readBuffer, deltaTime, maskActive) {
+      renderer.getClearColor(this._oldClearColor);
+      this.oldClearAlpha = renderer.getClearAlpha();
+      var oldAutoClear = renderer.autoClear;
+      renderer.autoClear = false;
+      renderer.setClearColor(this.clearColor, 0);
+      if (maskActive) renderer.state.buffers.stencil.setTest(false);
+
+      // Render input to screen
+
+      if (this.renderToScreen) {
+        this.fsQuad.material = this.basic;
+        this.basic.map = readBuffer.texture;
+        renderer.setRenderTarget(null);
+        renderer.clear();
+        this.fsQuad.render(renderer);
+      }
+
+      // 1. Extract Bright Areas
+
+      this.highPassUniforms["tDiffuse"].value = readBuffer.texture;
+      this.highPassUniforms["luminosityThreshold"].value = this.threshold;
+      this.fsQuad.material = this.materialHighPassFilter;
+      renderer.setRenderTarget(this.renderTargetBright);
+      renderer.clear();
+      this.fsQuad.render(renderer);
+
+      // 2. Blur All the mips progressively
+
+      var inputRenderTarget = this.renderTargetBright;
+      for (var i = 0; i < this.nMips; i++) {
+        this.fsQuad.material = this.separableBlurMaterials[i];
+        this.separableBlurMaterials[i].uniforms["colorTexture"].value = inputRenderTarget.texture;
+        this.separableBlurMaterials[i].uniforms["direction"].value = TransparentBackgroundFixedUnrealBloomPass.BlurDirectionX;
+        renderer.setRenderTarget(this.renderTargetsHorizontal[i]);
+        renderer.clear();
+        this.fsQuad.render(renderer);
+        this.separableBlurMaterials[i].uniforms["colorTexture"].value = this.renderTargetsHorizontal[i].texture;
+        this.separableBlurMaterials[i].uniforms["direction"].value = TransparentBackgroundFixedUnrealBloomPass.BlurDirectionY;
+        renderer.setRenderTarget(this.renderTargetsVertical[i]);
+        renderer.clear();
+        this.fsQuad.render(renderer);
+        inputRenderTarget = this.renderTargetsVertical[i];
+      }
+
+      // Composite All the mips
+
+      this.fsQuad.material = this.compositeMaterial;
+      this.compositeMaterial.uniforms["bloomStrength"].value = this.strength;
+      this.compositeMaterial.uniforms["bloomRadius"].value = this.radius;
+      this.compositeMaterial.uniforms["bloomTintColors"].value = this.bloomTintColors;
+      renderer.setRenderTarget(this.renderTargetsHorizontal[0]);
+      renderer.clear();
+      this.fsQuad.render(renderer);
+
+      // Blend it additively over the input texture
+
+      this.fsQuad.material = this.materialCopy;
+      this.copyUniforms["tDiffuse"].value = this.renderTargetsHorizontal[0].texture;
+      if (maskActive) renderer.state.buffers.stencil.setTest(true);
+      if (this.renderToScreen) {
+        renderer.setRenderTarget(null);
+        this.fsQuad.render(renderer);
+      } else {
+        renderer.setRenderTarget(readBuffer);
+        this.fsQuad.render(renderer);
+      }
+
+      // Restore renderer settings
+
+      renderer.setClearColor(this._oldClearColor, this.oldClearAlpha);
+      renderer.autoClear = oldAutoClear;
+    }
+  }, {
+    key: "getSeperableBlurMaterial",
+    value: function getSeperableBlurMaterial(kernelRadius) {
+      return new three__WEBPACK_IMPORTED_MODULE_7__.ShaderMaterial({
+        defines: {
+          KERNEL_RADIUS: kernelRadius,
+          SIGMA: kernelRadius
+        },
+        uniforms: {
+          colorTexture: {
+            value: null
+          },
+          texSize: {
+            value: new three__WEBPACK_IMPORTED_MODULE_7__.Vector2(0.5, 0.5)
+          },
+          direction: {
+            value: new three__WEBPACK_IMPORTED_MODULE_7__.Vector2(0.5, 0.5)
+          }
+        },
+        vertexShader: "varying vec2 vUv;\n\t\t\t\tvoid main() {\n\t\t\t\t\tvUv = uv;\n\t\t\t\t\tgl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );\n\t\t\t\t}",
+        fragmentShader: "#include <common>\n\t\t\t\tvarying vec2 vUv;\n\t\t\t\tuniform sampler2D colorTexture;\n\t\t\t\tuniform vec2 texSize;\n\t\t\t\tuniform vec2 direction;\n\n\t\t\t\tfloat gaussianPdf(in float x, in float sigma) {\n\t\t\t\t\treturn 0.39894 * exp( -0.5 * x * x/( sigma * sigma))/sigma;\n\t\t\t\t}\n\t\t\t\tvoid main() {\n          vec2 invSize = 1.0 / texSize;          float fSigma = float(SIGMA);          float weightSum = gaussianPdf(0.0, fSigma);          float alphaSum = 0.0;          vec3 diffuseSum = texture2D( colorTexture, vUv).rgb * weightSum;          for( int i = 1; i < KERNEL_RADIUS; i ++ ) {            float x = float(i);            float w = gaussianPdf(x, fSigma);            vec2 uvOffset = direction * invSize * x;            vec4 sample1 = texture2D( colorTexture, vUv + uvOffset);            vec4 sample2 = texture2D( colorTexture, vUv - uvOffset);            diffuseSum += (sample1.rgb + sample2.rgb) * w;            alphaSum += (sample1.a + sample2.a) * w;            weightSum += 2.0 * w;          }          gl_FragColor = vec4(diffuseSum/weightSum, alphaSum/weightSum);\n        }"
+      });
+    }
+  }, {
+    key: "getCompositeMaterial",
+    value: function getCompositeMaterial(nMips) {
+      return new three__WEBPACK_IMPORTED_MODULE_7__.ShaderMaterial({
+        defines: {
+          NUM_MIPS: nMips
+        },
+        uniforms: {
+          blurTexture1: {
+            value: null
+          },
+          blurTexture2: {
+            value: null
+          },
+          blurTexture3: {
+            value: null
+          },
+          blurTexture4: {
+            value: null
+          },
+          blurTexture5: {
+            value: null
+          },
+          dirtTexture: {
+            value: null
+          },
+          bloomStrength: {
+            value: 1.0
+          },
+          bloomFactors: {
+            value: null
+          },
+          bloomTintColors: {
+            value: null
+          },
+          bloomRadius: {
+            value: 0.0
+          }
+        },
+        vertexShader: "varying vec2 vUv;\n\t\t\t\tvoid main() {\n\t\t\t\t\tvUv = uv;\n\t\t\t\t\tgl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );\n\t\t\t\t}",
+        fragmentShader: "varying vec2 vUv;\n\t\t\t\tuniform sampler2D blurTexture1;\n\t\t\t\tuniform sampler2D blurTexture2;\n\t\t\t\tuniform sampler2D blurTexture3;\n\t\t\t\tuniform sampler2D blurTexture4;\n\t\t\t\tuniform sampler2D blurTexture5;\n\t\t\t\tuniform sampler2D dirtTexture;\n\t\t\t\tuniform float bloomStrength;\n\t\t\t\tuniform float bloomRadius;\n\t\t\t\tuniform float bloomFactors[NUM_MIPS];\n\t\t\t\tuniform vec3 bloomTintColors[NUM_MIPS];\n\n\t\t\t\tfloat lerpBloomFactor(const in float factor) {\n\t\t\t\t\tfloat mirrorFactor = 1.2 - factor;\n\t\t\t\t\treturn mix(factor, mirrorFactor, bloomRadius);\n\t\t\t\t}\n\n\t\t\t\tvoid main() {\n\t\t\t\t\tgl_FragColor = bloomStrength * ( lerpBloomFactor(bloomFactors[0]) * vec4(bloomTintColors[0], 1.0) * texture2D(blurTexture1, vUv) +\n\t\t\t\t\t\tlerpBloomFactor(bloomFactors[1]) * vec4(bloomTintColors[1], 1.0) * texture2D(blurTexture2, vUv) +\n\t\t\t\t\t\tlerpBloomFactor(bloomFactors[2]) * vec4(bloomTintColors[2], 1.0) * texture2D(blurTexture3, vUv) +\n\t\t\t\t\t\tlerpBloomFactor(bloomFactors[3]) * vec4(bloomTintColors[3], 1.0) * texture2D(blurTexture4, vUv) +\n\t\t\t\t\t\tlerpBloomFactor(bloomFactors[4]) * vec4(bloomTintColors[4], 1.0) * texture2D(blurTexture5, vUv) );\n\t\t\t\t}"
+      });
+    }
+  }]);
+  return TransparentBackgroundFixedUnrealBloomPass;
+}(three_examples_jsm_postprocessing_Pass__WEBPACK_IMPORTED_MODULE_10__.Pass);
+(0,_babel_runtime_corejs3_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(TransparentBackgroundFixedUnrealBloomPass, "BlurDirectionX", void 0);
+(0,_babel_runtime_corejs3_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(TransparentBackgroundFixedUnrealBloomPass, "BlurDirectionY", void 0);
+TransparentBackgroundFixedUnrealBloomPass.BlurDirectionX = new three__WEBPACK_IMPORTED_MODULE_7__.Vector2(1.0, 0.0);
+TransparentBackgroundFixedUnrealBloomPass.BlurDirectionY = new three__WEBPACK_IMPORTED_MODULE_7__.Vector2(0.0, 1.0);
+
+
+/***/ }),
+
+/***/ "./src/components/Slider.jsx":
+/*!***********************************!*\
+  !*** ./src/components/Slider.jsx ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_corejs3_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs3/helpers/slicedToArray */ "./node_modules/@babel/runtime-corejs3/helpers/esm/slicedToArray.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+
+
+var Slider = function Slider(prop) {
+  var onChange = prop.onChange;
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false),
+    _useState2 = (0,_babel_runtime_corejs3_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_useState, 2),
+    checked = _useState2[0],
+    setChecked = _useState2[1];
+  var sliderWidth = 50;
+  var sliderheight = 25;
+  var trackColor = '#333333';
+  var trackCheckedColor = '#47AEF9';
+  var thumbColor = '#f0f0f0';
+  var trackStyle = {
+    display: 'block',
+    position: 'relative',
+    width: "".concat(sliderWidth, "px"),
+    height: "".concat(sliderheight, "px"),
+    borderRadius: "".concat(sliderheight, "px"),
+    background: trackColor,
+    cursor: 'pointer',
+    transition: 'all 0.5s ease-in-out'
+  };
+  var thumbStyle = {
+    position: 'absolute',
+    width: "".concat(sliderheight + 2, "px"),
+    height: "".concat(sliderheight + 2, "px"),
+    top: '-1px',
+    borderRadius: '50%',
+    background: thumbColor,
+    cursor: 'pointer',
+    transition: 'all 0.5s ease-in-out',
+    transform: 'translateX(0px)'
+  };
+  if (checked) {
+    trackStyle.background = trackCheckedColor;
+    thumbStyle.transform = "translateX(".concat(sliderWidth - sliderheight, "px)");
+  }
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
+    var e = {
+      target: {
+        checked: checked
+      }
+    };
+    onChange(e); // onChange return parent checked
+  }, [checked]);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("label", {
+    style: trackStyle
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("input", {
+    type: "checkBox",
+    style: {
+      display: 'none'
+    },
+    defaultChecked: checked,
+    onChange: function onChange() {
+      setChecked(function (prev) {
+        return !prev;
+      });
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
+    style: thumbStyle
+  }));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Slider);
 
 /***/ }),
 
@@ -5766,10 +6185,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_corejs3_core_js_stable_url__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs3_core_js_stable_url__WEBPACK_IMPORTED_MODULE_10__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_11__);
-/* harmony import */ var _Three__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../Three */ "./src/Three.jsx");
+/* harmony import */ var _Render3D__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../Render3D */ "./src/Render3D.js");
 /* harmony import */ var _Loader3D_scss__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./Loader3D.scss */ "./src/pages/Loader3D.scss");
-/* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! uuid */ "./node_modules/uuid/dist/esm-browser/v4.js");
+/* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! uuid */ "./node_modules/uuid/dist/esm-browser/v4.js");
 /* harmony import */ var dat_gui__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! dat.gui */ "./node_modules/dat.gui/build/dat.gui.module.js");
+/* harmony import */ var _components_Slider__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../components/Slider */ "./src/components/Slider.jsx");
 
 
 
@@ -5788,6 +6208,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 
 
+
 var Loader3D = function Loader3D() {
   var preWidth = (0,react__WEBPACK_IMPORTED_MODULE_11__.useRef)("");
   var preHeight = (0,react__WEBPACK_IMPORTED_MODULE_11__.useRef)("");
@@ -5799,8 +6220,9 @@ var Loader3D = function Loader3D() {
   var canvasDOM = (0,react__WEBPACK_IMPORTED_MODULE_11__.useRef)(null);
   var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_11__.useState)({
       background: '#000000',
-      width: window.innerWidth,
-      height: window.innerHeight,
+      background_transparent: false,
+      width: document.documentElement.clientWidth,
+      height: document.documentElement.clientHeight,
       type: '',
       source: ''
     }),
@@ -5862,10 +6284,17 @@ var Loader3D = function Loader3D() {
       });
     });
   };
+  var onSliderChange = function onSliderChange(e) {
+    setOBJ3D_data(function (prev) {
+      return _objectSpread(_objectSpread({}, prev), {}, {
+        background_transparent: e.target.checked
+      });
+    });
+  };
   var canCreate = OBJ3D_data.width !== '' && OBJ3D_data.height !== '' && OBJ3D_data.background !== '' && OBJ3D_data.source !== '';
   var create3D = function create3D() {
     canvasDOM.current = null;
-    var key = (0,uuid__WEBPACK_IMPORTED_MODULE_15__["default"])();
+    var key = (0,uuid__WEBPACK_IMPORTED_MODULE_16__["default"])();
     setCanvas( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_11___default().createElement("canvas", {
       ref: canvasDOM,
       key: key,
@@ -5881,8 +6310,17 @@ var Loader3D = function Loader3D() {
       }
       gui.current = new dat_gui__WEBPACK_IMPORTED_MODULE_14__.GUI();
       var url = _babel_runtime_corejs3_core_js_stable_url__WEBPACK_IMPORTED_MODULE_10___default().createObjectURL(OBJ3D_data.source);
-      (0,_Three__WEBPACK_IMPORTED_MODULE_12__["default"])(OBJ3D_data.type, canvasDOM.current, url, OBJ3D_data.background, 1.2, 0.02, gui.current);
+      (0,_Render3D__WEBPACK_IMPORTED_MODULE_12__["default"])(OBJ3D_data.type, canvasDOM.current, url, OBJ3D_data.background, OBJ3D_data.background_transparent, 1.2, 0.02, gui.current);
+      canvasDOM.current.scrollIntoView({
+        behavior: 'smooth'
+      });
     }
+    setOBJ3D_data(function (prev) {
+      return _objectSpread(_objectSpread({}, prev), {}, {
+        width: document.documentElement.clientWidth,
+        height: document.documentElement.clientHeight
+      });
+    });
   }, [canvas]);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_11___default().createElement("div", {
     className: "loader3D"
@@ -5923,6 +6361,8 @@ var Loader3D = function Loader3D() {
     type: "color",
     defaultValue: OBJ3D_data.background,
     onChange: onBackgroundChange
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_11___default().createElement("label", null, "Transparent"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_11___default().createElement(_components_Slider__WEBPACK_IMPORTED_MODULE_15__["default"], {
+    onChange: onSliderChange
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_11___default().createElement("div", {
     className: "content",
     "data-status": OBJ3D_data.background !== '' ? 'selected' : 'unselected'
@@ -6175,6 +6615,19 @@ module.exports = parent;
 
 /***/ }),
 
+/***/ "./node_modules/core-js-pure/actual/instance/bind.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/core-js-pure/actual/instance/bind.js ***!
+  \***********************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(/*! ../../stable/instance/bind */ "./node_modules/core-js-pure/stable/instance/bind.js");
+
+module.exports = parent;
+
+
+/***/ }),
+
 /***/ "./node_modules/core-js-pure/actual/instance/slice.js":
 /*!************************************************************!*\
   !*** ./node_modules/core-js-pure/actual/instance/slice.js ***!
@@ -6182,6 +6635,19 @@ module.exports = parent;
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 var parent = __webpack_require__(/*! ../../stable/instance/slice */ "./node_modules/core-js-pure/stable/instance/slice.js");
+
+module.exports = parent;
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/actual/object/create.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/core-js-pure/actual/object/create.js ***!
+  \***********************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(/*! ../../stable/object/create */ "./node_modules/core-js-pure/stable/object/create.js");
 
 module.exports = parent;
 
@@ -6201,6 +6667,32 @@ module.exports = parent;
 
 /***/ }),
 
+/***/ "./node_modules/core-js-pure/actual/object/get-prototype-of.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/core-js-pure/actual/object/get-prototype-of.js ***!
+  \*********************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(/*! ../../stable/object/get-prototype-of */ "./node_modules/core-js-pure/stable/object/get-prototype-of.js");
+
+module.exports = parent;
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/actual/object/set-prototype-of.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/core-js-pure/actual/object/set-prototype-of.js ***!
+  \*********************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(/*! ../../stable/object/set-prototype-of */ "./node_modules/core-js-pure/stable/object/set-prototype-of.js");
+
+module.exports = parent;
+
+
+/***/ }),
+
 /***/ "./node_modules/core-js-pure/actual/symbol/index.js":
 /*!**********************************************************!*\
   !*** ./node_modules/core-js-pure/actual/symbol/index.js ***!
@@ -6208,6 +6700,19 @@ module.exports = parent;
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 var parent = __webpack_require__(/*! ../../stable/symbol */ "./node_modules/core-js-pure/stable/symbol/index.js");
+
+module.exports = parent;
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/actual/symbol/iterator.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/core-js-pure/actual/symbol/iterator.js ***!
+  \*************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(/*! ../../stable/symbol/iterator */ "./node_modules/core-js-pure/stable/symbol/iterator.js");
 
 module.exports = parent;
 
@@ -6285,6 +6790,20 @@ module.exports = entryVirtual('Array').slice;
 
 /***/ }),
 
+/***/ "./node_modules/core-js-pure/es/function/virtual/bind.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/core-js-pure/es/function/virtual/bind.js ***!
+  \***************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+__webpack_require__(/*! ../../../modules/es.function.bind */ "./node_modules/core-js-pure/modules/es.function.bind.js");
+var entryVirtual = __webpack_require__(/*! ../../../internals/entry-virtual */ "./node_modules/core-js-pure/internals/entry-virtual.js");
+
+module.exports = entryVirtual('Function').bind;
+
+
+/***/ }),
+
 /***/ "./node_modules/core-js-pure/es/get-iterator-method.js":
 /*!*************************************************************!*\
   !*** ./node_modules/core-js-pure/es/get-iterator-method.js ***!
@@ -6296,6 +6815,25 @@ __webpack_require__(/*! ../modules/es.string.iterator */ "./node_modules/core-js
 var getIteratorMethod = __webpack_require__(/*! ../internals/get-iterator-method */ "./node_modules/core-js-pure/internals/get-iterator-method.js");
 
 module.exports = getIteratorMethod;
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/es/instance/bind.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/core-js-pure/es/instance/bind.js ***!
+  \*******************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var isPrototypeOf = __webpack_require__(/*! ../../internals/object-is-prototype-of */ "./node_modules/core-js-pure/internals/object-is-prototype-of.js");
+var method = __webpack_require__(/*! ../function/virtual/bind */ "./node_modules/core-js-pure/es/function/virtual/bind.js");
+
+var FunctionPrototype = Function.prototype;
+
+module.exports = function (it) {
+  var own = it.bind;
+  return it === FunctionPrototype || (isPrototypeOf(FunctionPrototype, it) && own === FunctionPrototype.bind) ? method : own;
+};
 
 
 /***/ }),
@@ -6333,6 +6871,24 @@ var ArrayPrototype = Array.prototype;
 module.exports = function (it) {
   var own = it.slice;
   return it === ArrayPrototype || (isPrototypeOf(ArrayPrototype, it) && own === ArrayPrototype.slice) ? method : own;
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/es/object/create.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/core-js-pure/es/object/create.js ***!
+  \*******************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+__webpack_require__(/*! ../../modules/es.object.create */ "./node_modules/core-js-pure/modules/es.object.create.js");
+var path = __webpack_require__(/*! ../../internals/path */ "./node_modules/core-js-pure/internals/path.js");
+
+var Object = path.Object;
+
+module.exports = function create(P, D) {
+  return Object.create(P, D);
 };
 
 
@@ -6426,6 +6982,20 @@ module.exports = path.Object.getOwnPropertySymbols;
 
 /***/ }),
 
+/***/ "./node_modules/core-js-pure/es/object/get-prototype-of.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/core-js-pure/es/object/get-prototype-of.js ***!
+  \*****************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+__webpack_require__(/*! ../../modules/es.object.get-prototype-of */ "./node_modules/core-js-pure/modules/es.object.get-prototype-of.js");
+var path = __webpack_require__(/*! ../../internals/path */ "./node_modules/core-js-pure/internals/path.js");
+
+module.exports = path.Object.getPrototypeOf;
+
+
+/***/ }),
+
 /***/ "./node_modules/core-js-pure/es/object/keys.js":
 /*!*****************************************************!*\
   !*** ./node_modules/core-js-pure/es/object/keys.js ***!
@@ -6436,6 +7006,34 @@ __webpack_require__(/*! ../../modules/es.object.keys */ "./node_modules/core-js-
 var path = __webpack_require__(/*! ../../internals/path */ "./node_modules/core-js-pure/internals/path.js");
 
 module.exports = path.Object.keys;
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/es/object/set-prototype-of.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/core-js-pure/es/object/set-prototype-of.js ***!
+  \*****************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+__webpack_require__(/*! ../../modules/es.object.set-prototype-of */ "./node_modules/core-js-pure/modules/es.object.set-prototype-of.js");
+var path = __webpack_require__(/*! ../../internals/path */ "./node_modules/core-js-pure/internals/path.js");
+
+module.exports = path.Object.setPrototypeOf;
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/es/reflect/construct.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/core-js-pure/es/reflect/construct.js ***!
+  \***********************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+__webpack_require__(/*! ../../modules/es.reflect.construct */ "./node_modules/core-js-pure/modules/es.reflect.construct.js");
+var path = __webpack_require__(/*! ../../internals/path */ "./node_modules/core-js-pure/internals/path.js");
+
+module.exports = path.Reflect.construct;
 
 
 /***/ }),
@@ -6473,6 +7071,23 @@ module.exports = path.Symbol;
 
 /***/ }),
 
+/***/ "./node_modules/core-js-pure/es/symbol/iterator.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/core-js-pure/es/symbol/iterator.js ***!
+  \*********************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+__webpack_require__(/*! ../../modules/es.array.iterator */ "./node_modules/core-js-pure/modules/es.array.iterator.js");
+__webpack_require__(/*! ../../modules/es.object.to-string */ "./node_modules/core-js-pure/modules/es.object.to-string.js");
+__webpack_require__(/*! ../../modules/es.string.iterator */ "./node_modules/core-js-pure/modules/es.string.iterator.js");
+__webpack_require__(/*! ../../modules/es.symbol.iterator */ "./node_modules/core-js-pure/modules/es.symbol.iterator.js");
+var WrappedWellKnownSymbolModule = __webpack_require__(/*! ../../internals/well-known-symbol-wrapped */ "./node_modules/core-js-pure/internals/well-known-symbol-wrapped.js");
+
+module.exports = WrappedWellKnownSymbolModule.f('iterator');
+
+
+/***/ }),
+
 /***/ "./node_modules/core-js-pure/features/array/from.js":
 /*!**********************************************************!*\
   !*** ./node_modules/core-js-pure/features/array/from.js ***!
@@ -6506,6 +7121,17 @@ module.exports = __webpack_require__(/*! ../full/get-iterator-method */ "./node_
 
 /***/ }),
 
+/***/ "./node_modules/core-js-pure/features/instance/bind.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/core-js-pure/features/instance/bind.js ***!
+  \*************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__(/*! ../../full/instance/bind */ "./node_modules/core-js-pure/full/instance/bind.js");
+
+
+/***/ }),
+
 /***/ "./node_modules/core-js-pure/features/instance/slice.js":
 /*!**************************************************************!*\
   !*** ./node_modules/core-js-pure/features/instance/slice.js ***!
@@ -6513,6 +7139,17 @@ module.exports = __webpack_require__(/*! ../full/get-iterator-method */ "./node_
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 module.exports = __webpack_require__(/*! ../../full/instance/slice */ "./node_modules/core-js-pure/full/instance/slice.js");
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/features/object/create.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/core-js-pure/features/object/create.js ***!
+  \*************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__(/*! ../../full/object/create */ "./node_modules/core-js-pure/full/object/create.js");
 
 
 /***/ }),
@@ -6528,6 +7165,28 @@ module.exports = __webpack_require__(/*! ../../full/object/define-property */ ".
 
 /***/ }),
 
+/***/ "./node_modules/core-js-pure/features/object/get-prototype-of.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/core-js-pure/features/object/get-prototype-of.js ***!
+  \***********************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__(/*! ../../full/object/get-prototype-of */ "./node_modules/core-js-pure/full/object/get-prototype-of.js");
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/features/object/set-prototype-of.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/core-js-pure/features/object/set-prototype-of.js ***!
+  \***********************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__(/*! ../../full/object/set-prototype-of */ "./node_modules/core-js-pure/full/object/set-prototype-of.js");
+
+
+/***/ }),
+
 /***/ "./node_modules/core-js-pure/features/symbol/index.js":
 /*!************************************************************!*\
   !*** ./node_modules/core-js-pure/features/symbol/index.js ***!
@@ -6535,6 +7194,17 @@ module.exports = __webpack_require__(/*! ../../full/object/define-property */ ".
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 module.exports = __webpack_require__(/*! ../../full/symbol */ "./node_modules/core-js-pure/full/symbol/index.js");
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/features/symbol/iterator.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/core-js-pure/features/symbol/iterator.js ***!
+  \***************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__(/*! ../../full/symbol/iterator */ "./node_modules/core-js-pure/full/symbol/iterator.js");
 
 
 /***/ }),
@@ -6578,6 +7248,19 @@ module.exports = parent;
 
 /***/ }),
 
+/***/ "./node_modules/core-js-pure/full/instance/bind.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/core-js-pure/full/instance/bind.js ***!
+  \*********************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(/*! ../../actual/instance/bind */ "./node_modules/core-js-pure/actual/instance/bind.js");
+
+module.exports = parent;
+
+
+/***/ }),
+
 /***/ "./node_modules/core-js-pure/full/instance/slice.js":
 /*!**********************************************************!*\
   !*** ./node_modules/core-js-pure/full/instance/slice.js ***!
@@ -6591,6 +7274,19 @@ module.exports = parent;
 
 /***/ }),
 
+/***/ "./node_modules/core-js-pure/full/object/create.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/core-js-pure/full/object/create.js ***!
+  \*********************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(/*! ../../actual/object/create */ "./node_modules/core-js-pure/actual/object/create.js");
+
+module.exports = parent;
+
+
+/***/ }),
+
 /***/ "./node_modules/core-js-pure/full/object/define-property.js":
 /*!******************************************************************!*\
   !*** ./node_modules/core-js-pure/full/object/define-property.js ***!
@@ -6598,6 +7294,32 @@ module.exports = parent;
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 var parent = __webpack_require__(/*! ../../actual/object/define-property */ "./node_modules/core-js-pure/actual/object/define-property.js");
+
+module.exports = parent;
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/full/object/get-prototype-of.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/core-js-pure/full/object/get-prototype-of.js ***!
+  \*******************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(/*! ../../actual/object/get-prototype-of */ "./node_modules/core-js-pure/actual/object/get-prototype-of.js");
+
+module.exports = parent;
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/full/object/set-prototype-of.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/core-js-pure/full/object/set-prototype-of.js ***!
+  \*******************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(/*! ../../actual/object/set-prototype-of */ "./node_modules/core-js-pure/actual/object/set-prototype-of.js");
 
 module.exports = parent;
 
@@ -6626,6 +7348,19 @@ module.exports = parent;
 
 /***/ }),
 
+/***/ "./node_modules/core-js-pure/full/symbol/iterator.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/core-js-pure/full/symbol/iterator.js ***!
+  \***********************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(/*! ../../actual/symbol/iterator */ "./node_modules/core-js-pure/actual/symbol/iterator.js");
+
+module.exports = parent;
+
+
+/***/ }),
+
 /***/ "./node_modules/core-js-pure/internals/a-callable.js":
 /*!***********************************************************!*\
   !*** ./node_modules/core-js-pure/internals/a-callable.js ***!
@@ -6641,6 +7376,26 @@ var $TypeError = TypeError;
 module.exports = function (argument) {
   if (isCallable(argument)) return argument;
   throw $TypeError(tryToString(argument) + ' is not a function');
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/a-constructor.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/a-constructor.js ***!
+  \**************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var isConstructor = __webpack_require__(/*! ../internals/is-constructor */ "./node_modules/core-js-pure/internals/is-constructor.js");
+var tryToString = __webpack_require__(/*! ../internals/try-to-string */ "./node_modules/core-js-pure/internals/try-to-string.js");
+
+var $TypeError = TypeError;
+
+// `Assert: IsConstructor(argument) is true`
+module.exports = function (argument) {
+  if (isConstructor(argument)) return argument;
+  throw $TypeError(tryToString(argument) + ' is not a constructor');
 };
 
 
@@ -7791,6 +8546,50 @@ module.exports = !fails(function () {
   // eslint-disable-next-line no-prototype-builtins -- safe
   return typeof test != 'function' || test.hasOwnProperty('prototype');
 });
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/function-bind.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/function-bind.js ***!
+  \**************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var uncurryThis = __webpack_require__(/*! ../internals/function-uncurry-this */ "./node_modules/core-js-pure/internals/function-uncurry-this.js");
+var aCallable = __webpack_require__(/*! ../internals/a-callable */ "./node_modules/core-js-pure/internals/a-callable.js");
+var isObject = __webpack_require__(/*! ../internals/is-object */ "./node_modules/core-js-pure/internals/is-object.js");
+var hasOwn = __webpack_require__(/*! ../internals/has-own-property */ "./node_modules/core-js-pure/internals/has-own-property.js");
+var arraySlice = __webpack_require__(/*! ../internals/array-slice */ "./node_modules/core-js-pure/internals/array-slice.js");
+var NATIVE_BIND = __webpack_require__(/*! ../internals/function-bind-native */ "./node_modules/core-js-pure/internals/function-bind-native.js");
+
+var $Function = Function;
+var concat = uncurryThis([].concat);
+var join = uncurryThis([].join);
+var factories = {};
+
+var construct = function (C, argsLength, args) {
+  if (!hasOwn(factories, argsLength)) {
+    for (var list = [], i = 0; i < argsLength; i++) list[i] = 'a[' + i + ']';
+    factories[argsLength] = $Function('C,a', 'return new C(' + join(list, ',') + ')');
+  } return factories[argsLength](C, args);
+};
+
+// `Function.prototype.bind` method implementation
+// https://tc39.es/ecma262/#sec-function.prototype.bind
+module.exports = NATIVE_BIND ? $Function.bind : function bind(that /* , ...args */) {
+  var F = aCallable(this);
+  var Prototype = F.prototype;
+  var partArgs = arraySlice(arguments, 1);
+  var boundFunction = function bound(/* args... */) {
+    var args = concat(partArgs, arraySlice(arguments));
+    return this instanceof boundFunction ? construct(F, args.length, args) : F.apply(that, args);
+  };
+  if (isObject(Prototype)) boundFunction.prototype = Prototype;
+  return boundFunction;
+};
 
 
 /***/ }),
@@ -10373,6 +11172,25 @@ $({ target: 'Array', proto: true, forced: !HAS_SPECIES_SUPPORT }, {
 
 /***/ }),
 
+/***/ "./node_modules/core-js-pure/modules/es.function.bind.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/core-js-pure/modules/es.function.bind.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+// TODO: Remove from `core-js@4`
+var $ = __webpack_require__(/*! ../internals/export */ "./node_modules/core-js-pure/internals/export.js");
+var bind = __webpack_require__(/*! ../internals/function-bind */ "./node_modules/core-js-pure/internals/function-bind.js");
+
+// `Function.prototype.bind` method
+// https://tc39.es/ecma262/#sec-function.prototype.bind
+$({ target: 'Function', proto: true, forced: Function.bind !== bind }, {
+  bind: bind
+});
+
+
+/***/ }),
+
 /***/ "./node_modules/core-js-pure/modules/es.json.stringify.js":
 /*!****************************************************************!*\
   !*** ./node_modules/core-js-pure/modules/es.json.stringify.js ***!
@@ -10478,6 +11296,26 @@ setToStringTag(global.JSON, 'JSON', true);
 /***/ (() => {
 
 // empty
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/modules/es.object.create.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/core-js-pure/modules/es.object.create.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+// TODO: Remove from `core-js@4`
+var $ = __webpack_require__(/*! ../internals/export */ "./node_modules/core-js-pure/internals/export.js");
+var DESCRIPTORS = __webpack_require__(/*! ../internals/descriptors */ "./node_modules/core-js-pure/internals/descriptors.js");
+var create = __webpack_require__(/*! ../internals/object-create */ "./node_modules/core-js-pure/internals/object-create.js");
+
+// `Object.create` method
+// https://tc39.es/ecma262/#sec-object.create
+$({ target: 'Object', stat: true, sham: !DESCRIPTORS }, {
+  create: create
+});
 
 
 /***/ }),
@@ -10610,6 +11448,32 @@ $({ target: 'Object', stat: true, forced: FORCED }, {
 
 /***/ }),
 
+/***/ "./node_modules/core-js-pure/modules/es.object.get-prototype-of.js":
+/*!*************************************************************************!*\
+  !*** ./node_modules/core-js-pure/modules/es.object.get-prototype-of.js ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+var $ = __webpack_require__(/*! ../internals/export */ "./node_modules/core-js-pure/internals/export.js");
+var fails = __webpack_require__(/*! ../internals/fails */ "./node_modules/core-js-pure/internals/fails.js");
+var toObject = __webpack_require__(/*! ../internals/to-object */ "./node_modules/core-js-pure/internals/to-object.js");
+var nativeGetPrototypeOf = __webpack_require__(/*! ../internals/object-get-prototype-of */ "./node_modules/core-js-pure/internals/object-get-prototype-of.js");
+var CORRECT_PROTOTYPE_GETTER = __webpack_require__(/*! ../internals/correct-prototype-getter */ "./node_modules/core-js-pure/internals/correct-prototype-getter.js");
+
+var FAILS_ON_PRIMITIVES = fails(function () { nativeGetPrototypeOf(1); });
+
+// `Object.getPrototypeOf` method
+// https://tc39.es/ecma262/#sec-object.getprototypeof
+$({ target: 'Object', stat: true, forced: FAILS_ON_PRIMITIVES, sham: !CORRECT_PROTOTYPE_GETTER }, {
+  getPrototypeOf: function getPrototypeOf(it) {
+    return nativeGetPrototypeOf(toObject(it));
+  }
+});
+
+
+
+/***/ }),
+
 /***/ "./node_modules/core-js-pure/modules/es.object.keys.js":
 /*!*************************************************************!*\
   !*** ./node_modules/core-js-pure/modules/es.object.keys.js ***!
@@ -10634,6 +11498,24 @@ $({ target: 'Object', stat: true, forced: FAILS_ON_PRIMITIVES }, {
 
 /***/ }),
 
+/***/ "./node_modules/core-js-pure/modules/es.object.set-prototype-of.js":
+/*!*************************************************************************!*\
+  !*** ./node_modules/core-js-pure/modules/es.object.set-prototype-of.js ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+var $ = __webpack_require__(/*! ../internals/export */ "./node_modules/core-js-pure/internals/export.js");
+var setPrototypeOf = __webpack_require__(/*! ../internals/object-set-prototype-of */ "./node_modules/core-js-pure/internals/object-set-prototype-of.js");
+
+// `Object.setPrototypeOf` method
+// https://tc39.es/ecma262/#sec-object.setprototypeof
+$({ target: 'Object', stat: true }, {
+  setPrototypeOf: setPrototypeOf
+});
+
+
+/***/ }),
+
 /***/ "./node_modules/core-js-pure/modules/es.object.to-string.js":
 /*!******************************************************************!*\
   !*** ./node_modules/core-js-pure/modules/es.object.to-string.js ***!
@@ -10641,6 +11523,72 @@ $({ target: 'Object', stat: true, forced: FAILS_ON_PRIMITIVES }, {
 /***/ (() => {
 
 // empty
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/modules/es.reflect.construct.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/core-js-pure/modules/es.reflect.construct.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+var $ = __webpack_require__(/*! ../internals/export */ "./node_modules/core-js-pure/internals/export.js");
+var getBuiltIn = __webpack_require__(/*! ../internals/get-built-in */ "./node_modules/core-js-pure/internals/get-built-in.js");
+var apply = __webpack_require__(/*! ../internals/function-apply */ "./node_modules/core-js-pure/internals/function-apply.js");
+var bind = __webpack_require__(/*! ../internals/function-bind */ "./node_modules/core-js-pure/internals/function-bind.js");
+var aConstructor = __webpack_require__(/*! ../internals/a-constructor */ "./node_modules/core-js-pure/internals/a-constructor.js");
+var anObject = __webpack_require__(/*! ../internals/an-object */ "./node_modules/core-js-pure/internals/an-object.js");
+var isObject = __webpack_require__(/*! ../internals/is-object */ "./node_modules/core-js-pure/internals/is-object.js");
+var create = __webpack_require__(/*! ../internals/object-create */ "./node_modules/core-js-pure/internals/object-create.js");
+var fails = __webpack_require__(/*! ../internals/fails */ "./node_modules/core-js-pure/internals/fails.js");
+
+var nativeConstruct = getBuiltIn('Reflect', 'construct');
+var ObjectPrototype = Object.prototype;
+var push = [].push;
+
+// `Reflect.construct` method
+// https://tc39.es/ecma262/#sec-reflect.construct
+// MS Edge supports only 2 arguments and argumentsList argument is optional
+// FF Nightly sets third argument as `new.target`, but does not create `this` from it
+var NEW_TARGET_BUG = fails(function () {
+  function F() { /* empty */ }
+  return !(nativeConstruct(function () { /* empty */ }, [], F) instanceof F);
+});
+
+var ARGS_BUG = !fails(function () {
+  nativeConstruct(function () { /* empty */ });
+});
+
+var FORCED = NEW_TARGET_BUG || ARGS_BUG;
+
+$({ target: 'Reflect', stat: true, forced: FORCED, sham: FORCED }, {
+  construct: function construct(Target, args /* , newTarget */) {
+    aConstructor(Target);
+    anObject(args);
+    var newTarget = arguments.length < 3 ? Target : aConstructor(arguments[2]);
+    if (ARGS_BUG && !NEW_TARGET_BUG) return nativeConstruct(Target, args, newTarget);
+    if (Target == newTarget) {
+      // w/o altered newTarget, optimization for 0-4 arguments
+      switch (args.length) {
+        case 0: return new Target();
+        case 1: return new Target(args[0]);
+        case 2: return new Target(args[0], args[1]);
+        case 3: return new Target(args[0], args[1], args[2]);
+        case 4: return new Target(args[0], args[1], args[2], args[3]);
+      }
+      // w/o altered newTarget, lot of arguments case
+      var $args = [null];
+      apply(push, $args, args);
+      return new (apply(bind, Target, $args))();
+    }
+    // with altered newTarget, not support built-in constructors
+    var proto = newTarget.prototype;
+    var instance = create(isObject(proto) ? proto : ObjectPrototype);
+    var result = apply(Target, instance, args);
+    return isObject(result) ? result : instance;
+  }
+});
 
 
 /***/ }),
@@ -12946,6 +13894,19 @@ module.exports = parent;
 
 /***/ }),
 
+/***/ "./node_modules/core-js-pure/stable/instance/bind.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/core-js-pure/stable/instance/bind.js ***!
+  \***********************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(/*! ../../es/instance/bind */ "./node_modules/core-js-pure/es/instance/bind.js");
+
+module.exports = parent;
+
+
+/***/ }),
+
 /***/ "./node_modules/core-js-pure/stable/instance/filter.js":
 /*!*************************************************************!*\
   !*** ./node_modules/core-js-pure/stable/instance/filter.js ***!
@@ -12994,6 +13955,19 @@ module.exports = function (it) {
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 var parent = __webpack_require__(/*! ../../es/instance/slice */ "./node_modules/core-js-pure/es/instance/slice.js");
+
+module.exports = parent;
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/stable/object/create.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/core-js-pure/stable/object/create.js ***!
+  \***********************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(/*! ../../es/object/create */ "./node_modules/core-js-pure/es/object/create.js");
 
 module.exports = parent;
 
@@ -13065,6 +14039,19 @@ module.exports = parent;
 
 /***/ }),
 
+/***/ "./node_modules/core-js-pure/stable/object/get-prototype-of.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/core-js-pure/stable/object/get-prototype-of.js ***!
+  \*********************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(/*! ../../es/object/get-prototype-of */ "./node_modules/core-js-pure/es/object/get-prototype-of.js");
+
+module.exports = parent;
+
+
+/***/ }),
+
 /***/ "./node_modules/core-js-pure/stable/object/keys.js":
 /*!*********************************************************!*\
   !*** ./node_modules/core-js-pure/stable/object/keys.js ***!
@@ -13078,6 +14065,32 @@ module.exports = parent;
 
 /***/ }),
 
+/***/ "./node_modules/core-js-pure/stable/object/set-prototype-of.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/core-js-pure/stable/object/set-prototype-of.js ***!
+  \*********************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(/*! ../../es/object/set-prototype-of */ "./node_modules/core-js-pure/es/object/set-prototype-of.js");
+
+module.exports = parent;
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/stable/reflect/construct.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/core-js-pure/stable/reflect/construct.js ***!
+  \***************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(/*! ../../es/reflect/construct */ "./node_modules/core-js-pure/es/reflect/construct.js");
+
+module.exports = parent;
+
+
+/***/ }),
+
 /***/ "./node_modules/core-js-pure/stable/symbol/index.js":
 /*!**********************************************************!*\
   !*** ./node_modules/core-js-pure/stable/symbol/index.js ***!
@@ -13085,6 +14098,20 @@ module.exports = parent;
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 var parent = __webpack_require__(/*! ../../es/symbol */ "./node_modules/core-js-pure/es/symbol/index.js");
+__webpack_require__(/*! ../../modules/web.dom-collections.iterator */ "./node_modules/core-js-pure/modules/web.dom-collections.iterator.js");
+
+module.exports = parent;
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/stable/symbol/iterator.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/core-js-pure/stable/symbol/iterator.js ***!
+  \*************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(/*! ../../es/symbol/iterator */ "./node_modules/core-js-pure/es/symbol/iterator.js");
 __webpack_require__(/*! ../../modules/web.dom-collections.iterator */ "./node_modules/core-js-pure/modules/web.dom-collections.iterator.js");
 
 module.exports = parent;
@@ -13141,7 +14168,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "html {\n  display: block;\n  width: 100%;\n  height: 100%;\n}\n\nbody {\n  display: block;\n  width: 100%;\n  height: 100%;\n  margin: 0 auto;\n  background-color: #111111;\n}\n\n#root {\n  display: block;\n  width: 100%;\n  height: 100%;\n  margin: 0 auto;\n}", "",{"version":3,"sources":["webpack://./src/App.scss"],"names":[],"mappings":"AAAA;EACI,cAAA;EACA,WAAA;EACA,YAAA;AACJ;;AACA;EACI,cAAA;EACA,WAAA;EACA,YAAA;EACA,cAAA;EACA,yBAAA;AAEJ;;AACA;EACI,cAAA;EACA,WAAA;EACA,YAAA;EACA,cAAA;AAEJ","sourcesContent":["html{\n    display: block;\n    width: 100%;\n    height: 100%;\n}\nbody{\n    display: block;\n    width: 100%;\n    height: 100%;\n    margin: 0 auto;\n    background-color: #111111;\n}\n\n#root{\n    display: block;\n    width: 100%;\n    height: 100%;\n    margin: 0 auto;\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "html {\n  display: block;\n  width: 100%;\n  height: auto;\n}\n\nbody {\n  display: block;\n  width: 100%;\n  height: auto;\n  margin: 0 auto;\n  background: linear-gradient(135deg, #993355 0%, #5577aa 100%);\n}\n\n#root {\n  display: block;\n  width: 100%;\n  height: auto;\n  margin: 0 auto;\n}", "",{"version":3,"sources":["webpack://./src/App.scss"],"names":[],"mappings":"AAAA;EACI,cAAA;EACA,WAAA;EACA,YAAA;AACJ;;AACA;EACI,cAAA;EACA,WAAA;EACA,YAAA;EACA,cAAA;EAEA,6DAAA;AACJ;;AAEA;EACI,cAAA;EACA,WAAA;EACA,YAAA;EACA,cAAA;AACJ","sourcesContent":["html{\n    display: block;\n    width: 100%;\n    height: auto;\n}\nbody{\n    display: block;\n    width: 100%;\n    height: auto;\n    margin: 0 auto;\n    // background-color: #111111;\n    background: linear-gradient(135deg, #993355 0%, #5577aa 100%);\n}\n\n#root{\n    display: block;\n    width: 100%;\n    height: auto;\n    margin: 0 auto;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -13168,7 +14195,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --create-position: calc(1vw);\n}\n\n.loader3D {\n  display: block;\n  margin: 0 auto;\n  width: 100%;\n  height: 100%;\n  color: #f0f0f0;\n}\n.loader3D .title {\n  display: block;\n  text-align: center;\n  font-size: 3vw;\n  padding: 3vw;\n}\n.loader3D .importBlock {\n  display: flex;\n  flex-direction: column;\n  justify-content: flex-start;\n  align-items: center;\n  width: 100%;\n}\n.loader3D .importBlock .optionTitle {\n  display: block;\n  width: 30%;\n  font-size: 2vw;\n}\n.loader3D .importBlock .optionContainer {\n  display: flex;\n  flex-direction: row;\n  justify-content: flex-start;\n  align-items: center;\n  width: 50%;\n}\n.loader3D .importBlock .source3D {\n  display: flex;\n  position: relative;\n  width: calc(300px + 50vw);\n  height: 100%;\n  flex-direction: row;\n  justify-content: flex-start;\n  align-items: flex-start;\n  font-size: 2vw;\n  padding-top: 2%;\n  padding-bottom: 2%;\n}\n.loader3D .importBlock .source3D .fileLabel {\n  position: relative;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  width: 33%;\n  height: 3.2vw;\n  font-size: 1.5vw;\n  border-radius: 10px;\n  border: dashed 1px #f0f0f0;\n  cursor: pointer;\n}\n.loader3D .importBlock .source3D .fileLabel input {\n  display: none;\n}\n.loader3D .importBlock .source3D span {\n  font-size: 1.5vw;\n  line-height: 1.5vw;\n  margin: 1vw;\n}\n.loader3D .importBlock .source3D::after {\n  content: \"\";\n  display: block;\n  position: absolute;\n  bottom: 0px;\n  width: 100%;\n  height: 1px;\n  background-color: #47AEF9;\n}\n.loader3D .importBlock .backgroundColor, .loader3D .importBlock .backgroundSize {\n  display: flex;\n  position: relative;\n  flex-direction: row;\n  justify-content: flex-start;\n  align-items: flex-start;\n  width: calc(300px + 50vw);\n  height: 100%;\n  font-size: 2vw;\n  padding-top: 2%;\n  padding-bottom: 2%;\n}\n.loader3D .importBlock .backgroundColor label, .loader3D .importBlock .backgroundSize label {\n  display: flex;\n  position: relative;\n  flex-direction: row;\n  justify-content: center;\n  align-items: center;\n  font-size: 1.5vw;\n  margin-left: 1vw;\n  margin-right: 1vw;\n}\n.loader3D .importBlock .backgroundColor input, .loader3D .importBlock .backgroundSize input {\n  display: block;\n  position: relative;\n  height: 2vw;\n  width: 30%;\n  text-align: center;\n  font-size: 1.4vw;\n  border-radius: 10px;\n  color: #f0f0f0;\n  background-color: #3c3c3c;\n  cursor: pointer;\n}\n.loader3D .importBlock .backgroundColor::after, .loader3D .importBlock .backgroundSize::after {\n  content: \"\";\n  display: block;\n  position: absolute;\n  bottom: 0px;\n  width: 100%;\n  height: 1px;\n  background-color: #47AEF9;\n}\n.loader3D .importBlock .backgroundColor input {\n  display: block;\n  height: 3vw;\n}\n.loader3D .importBlock .content {\n  display: block;\n  position: absolute;\n  top: 0%;\n  padding-top: 3%;\n  right: 0px;\n  font-size: 1.2vw;\n  height: 2vw;\n  line-height: 2vw;\n  width: auto;\n  text-align: center;\n}\n.loader3D .importBlock .content::after {\n  content: \"\";\n  position: absolute;\n  top: 75%;\n  right: -2vw;\n  transform: translate(0%, -50%);\n  display: block;\n  width: 0.8vw;\n  padding-top: 0.8vw;\n  height: 0%;\n  border-radius: 50%;\n  background-color: #888888;\n}\n.loader3D .importBlock .content[data-status=selected]::after {\n  background-color: #47AEF9;\n  box-shadow: 0px 0px 10px #47AEF9;\n}\n.loader3D .createBlock {\n  display: flex;\n  position: relative;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  width: 100%;\n  height: 5vw;\n  margin-top: calc(var(--create-position) + 50px);\n}\n.loader3D .createBlock .create {\n  display: flex;\n  position: relative;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  padding: 0.5vw 1.5vw;\n  font-size: 1.4vw;\n  background-color: #47AEF9;\n  color: #f0f0f0;\n  border-radius: 10px;\n  cursor: pointer;\n}\n.loader3D .createBlock .create:disabled {\n  background-color: #888888;\n}\n.loader3D .displayer {\n  display: block;\n  position: relative;\n  margin: 0 auto;\n}", "",{"version":3,"sources":["webpack://./src/pages/Loader3D.scss"],"names":[],"mappings":"AAAA;EACI,4BAAA;AACJ;;AACA;EACI,cAAA;EACA,cAAA;EACA,WAAA;EACA,YAAA;EACA,cAAA;AAEJ;AAAI;EACI,cAAA;EACA,kBAAA;EACA,cAAA;EACA,YAAA;AAER;AACI;EACI,aAAA;EACA,sBAAA;EACA,2BAAA;EACA,mBAAA;EACA,WAAA;AACR;AAEQ;EACI,cAAA;EACA,UAAA;EACA,cAAA;AAAZ;AAGQ;EACI,aAAA;EACA,mBAAA;EACA,2BAAA;EACA,mBAAA;EACA,UAAA;AADZ;AAIQ;EACI,aAAA;EACA,kBAAA;EACA,yBAAA;EACA,YAAA;EACA,mBAAA;EACA,2BAAA;EACA,uBAAA;EACA,cAAA;EACA,eAAA;EACA,kBAAA;AAFZ;AAIY;EACI,kBAAA;EACA,aAAA;EACA,sBAAA;EACA,uBAAA;EACA,mBAAA;EACA,UAAA;EACA,aAAA;EACA,gBAAA;EACA,mBAAA;EACA,0BAAA;EACA,eAAA;AAFhB;AAGgB;EACI,aAAA;AADpB;AAKY;EACI,gBAAA;EACA,kBAAA;EACA,WAAA;AAHhB;AAOY;EACI,WAAA;EACA,cAAA;EACA,kBAAA;EACA,WAAA;EACA,WAAA;EACA,WAAA;EACA,yBAAA;AALhB;AASQ;EACI,aAAA;EACA,kBAAA;EACA,mBAAA;EACA,2BAAA;EACA,uBAAA;EACA,yBAAA;EACA,YAAA;EACA,cAAA;EACA,eAAA;EACA,kBAAA;AAPZ;AASY;EACI,aAAA;EACA,kBAAA;EACA,mBAAA;EACA,uBAAA;EACA,mBAAA;EACA,gBAAA;EACA,gBAAA;EACA,iBAAA;AAPhB;AAUY;EACI,cAAA;EACA,kBAAA;EACA,WAAA;EACA,UAAA;EACA,kBAAA;EACA,gBAAA;EACA,mBAAA;EACA,cAAA;EACA,yBAAA;EACA,eAAA;AARhB;AAWY;EACI,WAAA;EACA,cAAA;EACA,kBAAA;EACA,WAAA;EACA,WAAA;EACA,WAAA;EACA,yBAAA;AAThB;AAaQ;EACI,cAAA;EACA,WAAA;AAXZ;AAeQ;EACI,cAAA;EACA,kBAAA;EACA,OAAA;EACA,eAAA;EACA,UAAA;EACA,gBAAA;EACA,WAAA;EACA,gBAAA;EACA,WAAA;EACA,kBAAA;AAbZ;AAgBQ;EACI,WAAA;EACA,kBAAA;EACA,QAAA;EACA,WAAA;EACA,8BAAA;EACA,cAAA;EACA,YAAA;EACA,kBAAA;EACA,UAAA;EACA,kBAAA;EACA,yBAAA;AAdZ;AAiBQ;EACI,yBAAA;EACA,gCAAA;AAfZ;AAmBI;EACI,aAAA;EACA,kBAAA;EACA,sBAAA;EACA,uBAAA;EACA,mBAAA;EACA,WAAA;EACA,WAAA;EACA,+CAAA;AAjBR;AAmBQ;EACI,aAAA;EACA,kBAAA;EACA,sBAAA;EACA,uBAAA;EACA,mBAAA;EACA,oBAAA;EACA,gBAAA;EACA,yBAAA;EACA,cAAA;EACA,mBAAA;EACA,eAAA;AAjBZ;AAkBY;EACI,yBAAA;AAhBhB;AAqBI;EACI,cAAA;EACA,kBAAA;EACA,cAAA;AAnBR","sourcesContent":[":root{\n    --create-position: calc(1vw);\n}\n.loader3D{\n    display: block;\n    margin: 0 auto;\n    width: 100%;\n    height: 100%;\n    color: #f0f0f0;\n\n    .title{\n        display: block;\n        text-align: center;\n        font-size: 3vw;\n        padding: 3vw;\n    }\n\n    .importBlock{\n        display: flex;\n        flex-direction: column;\n        justify-content: flex-start;\n        align-items: center;\n        width: 100%;\n\n\n        .optionTitle{\n            display: block;\n            width: 30%;\n            font-size: 2vw;\n        }\n\n        .optionContainer{\n            display: flex;\n            flex-direction: row;\n            justify-content: flex-start;\n            align-items: center;\n            width: 50%;\n        }\n\n        .source3D{\n            display: flex;\n            position: relative;\n            width: calc(300px + 50vw);\n            height: 100%;\n            flex-direction: row;\n            justify-content: flex-start;\n            align-items: flex-start;\n            font-size: 2vw;\n            padding-top: 2%;\n            padding-bottom: 2%;\n    \n            .fileLabel{\n                position: relative;\n                display: flex;\n                flex-direction: column;\n                justify-content: center;\n                align-items: center;\n                width: 33%;\n                height: 3.2vw;\n                font-size: 1.5vw;\n                border-radius: 10px;\n                border: dashed 1px #f0f0f0;\n                cursor: pointer;\n                input{\n                    display: none;\n                }\n            }\n\n            span{\n                font-size: 1.5vw;\n                line-height: 1.5vw;\n                margin: 1vw;\n            }\n\n\n            &::after{\n                content: '';\n                display: block;\n                position: absolute;\n                bottom: 0px;\n                width: 100%;\n                height: 1px;\n                background-color: #47AEF9;\n            }\n        }\n    \n        .backgroundColor, .backgroundSize{\n            display: flex;\n            position: relative;\n            flex-direction: row;\n            justify-content: flex-start;\n            align-items: flex-start;\n            width: calc(300px + 50vw);\n            height: 100%;\n            font-size: 2vw;\n            padding-top: 2%;\n            padding-bottom: 2%;\n\n            label{\n                display: flex;\n                position: relative;\n                flex-direction: row;\n                justify-content: center;\n                align-items: center;\n                font-size: 1.5vw;\n                margin-left: 1vw;\n                margin-right: 1vw;\n            }\n    \n            input{\n                display: block;\n                position: relative;\n                height: 2vw;\n                width: 30%;\n                text-align: center;\n                font-size: 1.4vw;\n                border-radius: 10px;\n                color: #f0f0f0;\n                background-color: #3c3c3c;\n                cursor: pointer;\n            }\n\n            &::after{\n                content: '';\n                display: block;\n                position: absolute;\n                bottom: 0px;\n                width: 100%;\n                height: 1px;\n                background-color: #47AEF9;\n            }\n        }\n\n        .backgroundColor input{\n            display: block;\n            height: 3vw;\n        }\n\n\n        .content{\n            display: block;\n            position: absolute;\n            top: 0%;\n            padding-top: 3%;\n            right: 0px;\n            font-size: 1.2vw;\n            height: 2vw;\n            line-height: 2vw;\n            width: auto;\n            text-align: center;\n        }\n\n        .content::after{\n            content: '';\n            position: absolute;\n            top: 75%;\n            right: -2vw;\n            transform: translate(0%, -50%);\n            display: block;\n            width: 0.8vw;\n            padding-top: 0.8vw;\n            height: 0%;\n            border-radius: 50%;\n            background-color: #888888;\n        }\n\n        .content[data-status=\"selected\"]::after{\n            background-color: #47AEF9;\n            box-shadow: 0px 0px 10px #47AEF9;\n        }\n    }\n\n    .createBlock{\n        display: flex;\n        position: relative;\n        flex-direction: column;\n        justify-content: center;\n        align-items: center;\n        width: 100%;\n        height: 5vw;\n        margin-top: calc(var(--create-position) + 50px);\n\n        .create{\n            display: flex;\n            position: relative;\n            flex-direction: column;\n            justify-content: center;\n            align-items: center;\n            padding: 0.5vw 1.5vw;\n            font-size: 1.4vw;\n            background-color: #47AEF9;\n            color: #f0f0f0;\n            border-radius: 10px;\n            cursor: pointer;\n            &:disabled{\n                background-color: #888888;\n            }\n        }\n    }\n\n    .displayer{\n        display: block;\n        position: relative;\n        margin: 0 auto;\n    }\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".loader3D {\n  display: block;\n  margin: 0 auto;\n  width: 100%;\n  height: 100%;\n  color: #f0f0f0;\n}\n.loader3D .title {\n  display: block;\n  text-align: center;\n  font-size: 3vw;\n  padding: 5vh;\n}\n.loader3D .importBlock {\n  display: flex;\n  flex-direction: column;\n  justify-content: flex-start;\n  align-items: center;\n  width: 100%;\n}\n.loader3D .importBlock .optionTitle {\n  display: block;\n  width: 30%;\n  font-size: 2vw;\n}\n.loader3D .importBlock .optionContainer {\n  display: flex;\n  flex-direction: row;\n  justify-content: flex-start;\n  align-items: center;\n  width: 50%;\n}\n.loader3D .importBlock .source3D {\n  display: flex;\n  position: relative;\n  width: calc(300px + 50vw);\n  height: 100%;\n  flex-direction: row;\n  justify-content: flex-start;\n  align-items: flex-start;\n  font-size: 2vw;\n  padding-top: 10vh;\n  padding-bottom: 7vh;\n}\n.loader3D .importBlock .source3D .fileLabel {\n  position: relative;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  width: 33%;\n  height: 3.2vw;\n  font-size: 1.5vw;\n  border-radius: 10px;\n  border: dashed 1px #f0f0f0;\n  cursor: pointer;\n}\n.loader3D .importBlock .source3D .fileLabel input {\n  display: none;\n}\n.loader3D .importBlock .source3D span {\n  font-size: 1.5vw;\n  line-height: 1.5vw;\n  margin: 1vw;\n}\n.loader3D .importBlock .source3D::after {\n  content: \"\";\n  display: block;\n  position: absolute;\n  bottom: 0px;\n  width: 100%;\n  height: 1px;\n  background-color: #47AEF9;\n}\n.loader3D .importBlock .backgroundColor, .loader3D .importBlock .backgroundSize {\n  display: flex;\n  position: relative;\n  flex-direction: row;\n  justify-content: flex-start;\n  align-items: flex-start;\n  width: calc(300px + 50vw);\n  height: 100%;\n  font-size: 2vw;\n  padding-top: 10vh;\n  padding-bottom: 7vh;\n}\n.loader3D .importBlock .backgroundColor label, .loader3D .importBlock .backgroundSize label {\n  display: flex;\n  position: relative;\n  flex-direction: row;\n  justify-content: center;\n  align-items: center;\n  font-size: 1.5vw;\n  margin-left: 1vw;\n  margin-right: 1vw;\n}\n.loader3D .importBlock .backgroundColor input, .loader3D .importBlock .backgroundSize input {\n  display: block;\n  position: relative;\n  height: 2vw;\n  width: 30%;\n  text-align: center;\n  font-size: 1.4vw;\n  border-radius: 10px;\n  color: #f0f0f0;\n  background-color: #3c3c3c;\n  cursor: pointer;\n}\n.loader3D .importBlock .backgroundColor::after, .loader3D .importBlock .backgroundSize::after {\n  content: \"\";\n  display: block;\n  position: absolute;\n  bottom: 0px;\n  width: 100%;\n  height: 1px;\n  background-color: #47AEF9;\n}\n.loader3D .importBlock .backgroundColor input {\n  display: block;\n  height: 3vw;\n}\n.loader3D .importBlock .content {\n  display: block;\n  position: absolute;\n  top: 0%;\n  padding-top: 10vh;\n  right: 0px;\n  font-size: 1.2vw;\n  height: 2vw;\n  line-height: 2vw;\n  width: auto;\n  text-align: center;\n}\n.loader3D .importBlock .content::after {\n  content: \"\";\n  position: absolute;\n  top: 90%;\n  right: -2vw;\n  transform: translate(0%, -50%);\n  display: block;\n  width: 1vh;\n  padding-top: 1vh;\n  height: 0%;\n  border-radius: 50%;\n  background-color: #888888;\n}\n.loader3D .importBlock .content[data-status=selected]::after {\n  background-color: #47AEF9;\n  box-shadow: 0px 0px 10px #47AEF9;\n}\n.loader3D .createBlock {\n  display: flex;\n  position: relative;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  width: 100%;\n  height: 5vw;\n  padding-top: 6vh;\n  padding-bottom: 25vh;\n}\n.loader3D .createBlock .create {\n  display: flex;\n  position: relative;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  padding: 0.5vw 1.5vw;\n  font-size: 1.4vw;\n  background-color: #47AEF9;\n  color: #f0f0f0;\n  border-radius: 10px;\n  cursor: pointer;\n}\n.loader3D .createBlock .create:disabled {\n  background-color: #888888;\n}\n.loader3D .displayer {\n  display: block;\n  position: relative;\n  margin: 0 auto;\n}", "",{"version":3,"sources":["webpack://./src/pages/Loader3D.scss"],"names":[],"mappings":"AAAA;EACI,cAAA;EACA,cAAA;EACA,WAAA;EACA,YAAA;EACA,cAAA;AACJ;AACI;EACI,cAAA;EACA,kBAAA;EACA,cAAA;EACA,YAAA;AACR;AAEI;EACI,aAAA;EACA,sBAAA;EACA,2BAAA;EACA,mBAAA;EACA,WAAA;AAAR;AAGQ;EACI,cAAA;EACA,UAAA;EACA,cAAA;AADZ;AAIQ;EACI,aAAA;EACA,mBAAA;EACA,2BAAA;EACA,mBAAA;EACA,UAAA;AAFZ;AAKQ;EACI,aAAA;EACA,kBAAA;EACA,yBAAA;EACA,YAAA;EACA,mBAAA;EACA,2BAAA;EACA,uBAAA;EACA,cAAA;EACA,iBAAA;EACA,mBAAA;AAHZ;AAKY;EACI,kBAAA;EACA,aAAA;EACA,sBAAA;EACA,uBAAA;EACA,mBAAA;EACA,UAAA;EACA,aAAA;EACA,gBAAA;EACA,mBAAA;EACA,0BAAA;EACA,eAAA;AAHhB;AAIgB;EACI,aAAA;AAFpB;AAMY;EACI,gBAAA;EACA,kBAAA;EACA,WAAA;AAJhB;AAQY;EACI,WAAA;EACA,cAAA;EACA,kBAAA;EACA,WAAA;EACA,WAAA;EACA,WAAA;EACA,yBAAA;AANhB;AAUQ;EACI,aAAA;EACA,kBAAA;EACA,mBAAA;EACA,2BAAA;EACA,uBAAA;EACA,yBAAA;EACA,YAAA;EACA,cAAA;EACA,iBAAA;EACA,mBAAA;AARZ;AAUY;EACI,aAAA;EACA,kBAAA;EACA,mBAAA;EACA,uBAAA;EACA,mBAAA;EACA,gBAAA;EACA,gBAAA;EACA,iBAAA;AARhB;AAWY;EACI,cAAA;EACA,kBAAA;EACA,WAAA;EACA,UAAA;EACA,kBAAA;EACA,gBAAA;EACA,mBAAA;EACA,cAAA;EACA,yBAAA;EACA,eAAA;AAThB;AAYY;EACI,WAAA;EACA,cAAA;EACA,kBAAA;EACA,WAAA;EACA,WAAA;EACA,WAAA;EACA,yBAAA;AAVhB;AAcQ;EACI,cAAA;EACA,WAAA;AAZZ;AAgBQ;EACI,cAAA;EACA,kBAAA;EACA,OAAA;EACA,iBAAA;EACA,UAAA;EACA,gBAAA;EACA,WAAA;EACA,gBAAA;EACA,WAAA;EACA,kBAAA;AAdZ;AAiBQ;EACI,WAAA;EACA,kBAAA;EACA,QAAA;EACA,WAAA;EACA,8BAAA;EACA,cAAA;EACA,UAAA;EACA,gBAAA;EACA,UAAA;EACA,kBAAA;EACA,yBAAA;AAfZ;AAkBQ;EACI,yBAAA;EACA,gCAAA;AAhBZ;AAoBI;EACI,aAAA;EACA,kBAAA;EACA,sBAAA;EACA,uBAAA;EACA,mBAAA;EACA,WAAA;EACA,WAAA;EACA,gBAAA;EACA,oBAAA;AAlBR;AAoBQ;EACI,aAAA;EACA,kBAAA;EACA,sBAAA;EACA,uBAAA;EACA,mBAAA;EACA,oBAAA;EACA,gBAAA;EACA,yBAAA;EACA,cAAA;EACA,mBAAA;EACA,eAAA;AAlBZ;AAmBY;EACI,yBAAA;AAjBhB;AAsBI;EACI,cAAA;EACA,kBAAA;EACA,cAAA;AApBR","sourcesContent":[".loader3D{\n    display: block;\n    margin: 0 auto;\n    width: 100%;\n    height: 100%;\n    color: #f0f0f0;\n\n    .title{\n        display: block;\n        text-align: center;\n        font-size: 3vw;\n        padding: 5vh;\n    }\n\n    .importBlock{\n        display: flex;\n        flex-direction: column;\n        justify-content: flex-start;\n        align-items: center;\n        width: 100%;\n\n\n        .optionTitle{\n            display: block;\n            width: 30%;\n            font-size: 2vw;\n        }\n\n        .optionContainer{\n            display: flex;\n            flex-direction: row;\n            justify-content: flex-start;\n            align-items: center;\n            width: 50%;\n        }\n\n        .source3D{\n            display: flex;\n            position: relative;\n            width: calc(300px + 50vw);\n            height: 100%;\n            flex-direction: row;\n            justify-content: flex-start;\n            align-items: flex-start;\n            font-size: 2vw;\n            padding-top: 10vh;\n            padding-bottom: 7vh;\n    \n            .fileLabel{\n                position: relative;\n                display: flex;\n                flex-direction: column;\n                justify-content: center;\n                align-items: center;\n                width: 33%;\n                height: 3.2vw;\n                font-size: 1.5vw;\n                border-radius: 10px;\n                border: dashed 1px #f0f0f0;\n                cursor: pointer;\n                input{\n                    display: none;\n                }\n            }\n\n            span{\n                font-size: 1.5vw;\n                line-height: 1.5vw;\n                margin: 1vw;\n            }\n\n\n            &::after{\n                content: '';\n                display: block;\n                position: absolute;\n                bottom: 0px;\n                width: 100%;\n                height: 1px;\n                background-color: #47AEF9;\n            }\n        }\n    \n        .backgroundColor, .backgroundSize{\n            display: flex;\n            position: relative;\n            flex-direction: row;\n            justify-content: flex-start;\n            align-items: flex-start;\n            width: calc(300px + 50vw);\n            height: 100%;\n            font-size: 2vw;\n            padding-top: 10vh;\n            padding-bottom: 7vh;\n\n            label{\n                display: flex;\n                position: relative;\n                flex-direction: row;\n                justify-content: center;\n                align-items: center;\n                font-size: 1.5vw;\n                margin-left: 1vw;\n                margin-right: 1vw;\n            }\n    \n            input{\n                display: block;\n                position: relative;\n                height: 2vw;\n                width: 30%;\n                text-align: center;\n                font-size: 1.4vw;\n                border-radius: 10px;\n                color: #f0f0f0;\n                background-color: #3c3c3c;\n                cursor: pointer;\n            }\n\n            &::after{\n                content: '';\n                display: block;\n                position: absolute;\n                bottom: 0px;\n                width: 100%;\n                height: 1px;\n                background-color: #47AEF9;\n            }\n        }\n\n        .backgroundColor input{\n            display: block;\n            height: 3vw;\n        }\n\n\n        .content{\n            display: block;\n            position: absolute;\n            top: 0%;\n            padding-top: 10vh;\n            right: 0px;\n            font-size: 1.2vw;\n            height: 2vw;\n            line-height: 2vw;\n            width: auto;\n            text-align: center;\n        }\n\n        .content::after{\n            content: '';\n            position: absolute;\n            top: 90%;\n            right: -2vw;\n            transform: translate(0%, -50%);\n            display: block;\n            width: 1vh;\n            padding-top: 1vh;\n            height: 0%;\n            border-radius: 50%;\n            background-color: #888888;\n        }\n\n        .content[data-status=\"selected\"]::after{\n            background-color: #47AEF9;\n            box-shadow: 0px 0px 10px #47AEF9;\n        }\n    }\n\n    .createBlock{\n        display: flex;\n        position: relative;\n        flex-direction: column;\n        justify-content: center;\n        align-items: center;\n        width: 100%;\n        height: 5vw;\n        padding-top: 6vh;\n        padding-bottom: 25vh;\n\n        .create{\n            display: flex;\n            position: relative;\n            flex-direction: column;\n            justify-content: center;\n            align-items: center;\n            padding: 0.5vw 1.5vw;\n            font-size: 1.4vw;\n            background-color: #47AEF9;\n            color: #f0f0f0;\n            border-radius: 10px;\n            cursor: pointer;\n            &:disabled{\n                background-color: #888888;\n            }\n        }\n    }\n\n    .displayer{\n        display: block;\n        position: relative;\n        margin: 0 auto;\n    }\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -55185,6 +56212,16 @@ module.exports = __webpack_require__(/*! core-js-pure/stable/object/keys */ "./n
 
 /***/ }),
 
+/***/ "./node_modules/@babel/runtime-corejs3/core-js-stable/reflect/construct.js":
+/*!*********************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs3/core-js-stable/reflect/construct.js ***!
+  \*********************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__(/*! core-js-pure/stable/reflect/construct */ "./node_modules/core-js-pure/stable/reflect/construct.js");
+
+/***/ }),
+
 /***/ "./node_modules/@babel/runtime-corejs3/core-js-stable/url.js":
 /*!*******************************************************************!*\
   !*** ./node_modules/@babel/runtime-corejs3/core-js-stable/url.js ***!
@@ -55225,6 +56262,16 @@ module.exports = __webpack_require__(/*! core-js-pure/features/get-iterator-meth
 
 /***/ }),
 
+/***/ "./node_modules/@babel/runtime-corejs3/core-js/instance/bind.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs3/core-js/instance/bind.js ***!
+  \**********************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__(/*! core-js-pure/features/instance/bind */ "./node_modules/core-js-pure/features/instance/bind.js");
+
+/***/ }),
+
 /***/ "./node_modules/@babel/runtime-corejs3/core-js/instance/slice.js":
 /*!***********************************************************************!*\
   !*** ./node_modules/@babel/runtime-corejs3/core-js/instance/slice.js ***!
@@ -55232,6 +56279,16 @@ module.exports = __webpack_require__(/*! core-js-pure/features/get-iterator-meth
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 module.exports = __webpack_require__(/*! core-js-pure/features/instance/slice */ "./node_modules/core-js-pure/features/instance/slice.js");
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs3/core-js/object/create.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs3/core-js/object/create.js ***!
+  \**********************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__(/*! core-js-pure/features/object/create */ "./node_modules/core-js-pure/features/object/create.js");
 
 /***/ }),
 
@@ -55245,6 +56302,26 @@ module.exports = __webpack_require__(/*! core-js-pure/features/object/define-pro
 
 /***/ }),
 
+/***/ "./node_modules/@babel/runtime-corejs3/core-js/object/get-prototype-of.js":
+/*!********************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs3/core-js/object/get-prototype-of.js ***!
+  \********************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__(/*! core-js-pure/features/object/get-prototype-of */ "./node_modules/core-js-pure/features/object/get-prototype-of.js");
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs3/core-js/object/set-prototype-of.js":
+/*!********************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs3/core-js/object/set-prototype-of.js ***!
+  \********************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__(/*! core-js-pure/features/object/set-prototype-of */ "./node_modules/core-js-pure/features/object/set-prototype-of.js");
+
+/***/ }),
+
 /***/ "./node_modules/@babel/runtime-corejs3/core-js/symbol.js":
 /*!***************************************************************!*\
   !*** ./node_modules/@babel/runtime-corejs3/core-js/symbol.js ***!
@@ -55252,6 +56329,16 @@ module.exports = __webpack_require__(/*! core-js-pure/features/object/define-pro
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 module.exports = __webpack_require__(/*! core-js-pure/features/symbol */ "./node_modules/core-js-pure/features/symbol/index.js");
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs3/core-js/symbol/iterator.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs3/core-js/symbol/iterator.js ***!
+  \************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__(/*! core-js-pure/features/symbol/iterator */ "./node_modules/core-js-pure/features/symbol/iterator.js");
 
 /***/ }),
 
@@ -55333,6 +56420,78 @@ function _arrayWithHoles(arr) {
 
 /***/ }),
 
+/***/ "./node_modules/@babel/runtime-corejs3/helpers/esm/assertThisInitialized.js":
+/*!**********************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs3/helpers/esm/assertThisInitialized.js ***!
+  \**********************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _assertThisInitialized)
+/* harmony export */ });
+function _assertThisInitialized(self) {
+  if (self === void 0) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }
+  return self;
+}
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs3/helpers/esm/classCallCheck.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs3/helpers/esm/classCallCheck.js ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _classCallCheck)
+/* harmony export */ });
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs3/helpers/esm/createClass.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs3/helpers/esm/createClass.js ***!
+  \************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _createClass)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_corejs3_core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs3/core-js/object/define-property */ "./node_modules/@babel/runtime-corejs3/core-js/object/define-property.js");
+
+function _defineProperties(target, props) {
+  for (var i = 0; i < props.length; i++) {
+    var descriptor = props[i];
+    descriptor.enumerable = descriptor.enumerable || false;
+    descriptor.configurable = true;
+    if ("value" in descriptor) descriptor.writable = true;
+    _babel_runtime_corejs3_core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0__(target, descriptor.key, descriptor);
+  }
+}
+function _createClass(Constructor, protoProps, staticProps) {
+  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties(Constructor, staticProps);
+  _babel_runtime_corejs3_core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0__(Constructor, "prototype", {
+    writable: false
+  });
+  return Constructor;
+}
+
+/***/ }),
+
 /***/ "./node_modules/@babel/runtime-corejs3/helpers/esm/defineProperty.js":
 /*!***************************************************************************!*\
   !*** ./node_modules/@babel/runtime-corejs3/helpers/esm/defineProperty.js ***!
@@ -55358,6 +56517,69 @@ function _defineProperty(obj, key, value) {
     obj[key] = value;
   }
   return obj;
+}
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs3/helpers/esm/getPrototypeOf.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs3/helpers/esm/getPrototypeOf.js ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _getPrototypeOf)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_corejs3_core_js_object_set_prototype_of__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs3/core-js/object/set-prototype-of */ "./node_modules/@babel/runtime-corejs3/core-js/object/set-prototype-of.js");
+/* harmony import */ var _babel_runtime_corejs3_core_js_instance_bind__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs3/core-js/instance/bind */ "./node_modules/@babel/runtime-corejs3/core-js/instance/bind.js");
+/* harmony import */ var _babel_runtime_corejs3_core_js_object_get_prototype_of__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime-corejs3/core-js/object/get-prototype-of */ "./node_modules/@babel/runtime-corejs3/core-js/object/get-prototype-of.js");
+
+
+
+function _getPrototypeOf(o) {
+  var _context;
+  _getPrototypeOf = _babel_runtime_corejs3_core_js_object_set_prototype_of__WEBPACK_IMPORTED_MODULE_0__ ? _babel_runtime_corejs3_core_js_instance_bind__WEBPACK_IMPORTED_MODULE_1__(_context = _babel_runtime_corejs3_core_js_object_get_prototype_of__WEBPACK_IMPORTED_MODULE_2__).call(_context) : function _getPrototypeOf(o) {
+    return o.__proto__ || _babel_runtime_corejs3_core_js_object_get_prototype_of__WEBPACK_IMPORTED_MODULE_2__(o);
+  };
+  return _getPrototypeOf(o);
+}
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs3/helpers/esm/inherits.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs3/helpers/esm/inherits.js ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _inherits)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_corejs3_core_js_object_create__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs3/core-js/object/create */ "./node_modules/@babel/runtime-corejs3/core-js/object/create.js");
+/* harmony import */ var _babel_runtime_corejs3_core_js_object_define_property__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs3/core-js/object/define-property */ "./node_modules/@babel/runtime-corejs3/core-js/object/define-property.js");
+/* harmony import */ var _setPrototypeOf_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./setPrototypeOf.js */ "./node_modules/@babel/runtime-corejs3/helpers/esm/setPrototypeOf.js");
+
+
+
+function _inherits(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function");
+  }
+  subClass.prototype = _babel_runtime_corejs3_core_js_object_create__WEBPACK_IMPORTED_MODULE_0__(superClass && superClass.prototype, {
+    constructor: {
+      value: subClass,
+      writable: true,
+      configurable: true
+    }
+  });
+  _babel_runtime_corejs3_core_js_object_define_property__WEBPACK_IMPORTED_MODULE_1__(subClass, "prototype", {
+    writable: false
+  });
+  if (superClass) (0,_setPrototypeOf_js__WEBPACK_IMPORTED_MODULE_2__["default"])(subClass, superClass);
 }
 
 /***/ }),
@@ -55421,6 +56643,58 @@ function _nonIterableRest() {
 
 /***/ }),
 
+/***/ "./node_modules/@babel/runtime-corejs3/helpers/esm/possibleConstructorReturn.js":
+/*!**************************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs3/helpers/esm/possibleConstructorReturn.js ***!
+  \**************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _possibleConstructorReturn)
+/* harmony export */ });
+/* harmony import */ var _typeof_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./typeof.js */ "./node_modules/@babel/runtime-corejs3/helpers/esm/typeof.js");
+/* harmony import */ var _assertThisInitialized_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./assertThisInitialized.js */ "./node_modules/@babel/runtime-corejs3/helpers/esm/assertThisInitialized.js");
+
+
+function _possibleConstructorReturn(self, call) {
+  if (call && ((0,_typeof_js__WEBPACK_IMPORTED_MODULE_0__["default"])(call) === "object" || typeof call === "function")) {
+    return call;
+  } else if (call !== void 0) {
+    throw new TypeError("Derived constructors may only return object or undefined");
+  }
+  return (0,_assertThisInitialized_js__WEBPACK_IMPORTED_MODULE_1__["default"])(self);
+}
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs3/helpers/esm/setPrototypeOf.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs3/helpers/esm/setPrototypeOf.js ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _setPrototypeOf)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_corejs3_core_js_object_set_prototype_of__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs3/core-js/object/set-prototype-of */ "./node_modules/@babel/runtime-corejs3/core-js/object/set-prototype-of.js");
+/* harmony import */ var _babel_runtime_corejs3_core_js_instance_bind__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs3/core-js/instance/bind */ "./node_modules/@babel/runtime-corejs3/core-js/instance/bind.js");
+
+
+function _setPrototypeOf(o, p) {
+  var _context;
+  _setPrototypeOf = _babel_runtime_corejs3_core_js_object_set_prototype_of__WEBPACK_IMPORTED_MODULE_0__ ? _babel_runtime_corejs3_core_js_instance_bind__WEBPACK_IMPORTED_MODULE_1__(_context = _babel_runtime_corejs3_core_js_object_set_prototype_of__WEBPACK_IMPORTED_MODULE_0__).call(_context) : function _setPrototypeOf(o, p) {
+    o.__proto__ = p;
+    return o;
+  };
+  return _setPrototypeOf(o, p);
+}
+
+/***/ }),
+
 /***/ "./node_modules/@babel/runtime-corejs3/helpers/esm/slicedToArray.js":
 /*!**************************************************************************!*\
   !*** ./node_modules/@babel/runtime-corejs3/helpers/esm/slicedToArray.js ***!
@@ -55442,6 +56716,33 @@ __webpack_require__.r(__webpack_exports__);
 
 function _slicedToArray(arr, i) {
   return (0,_arrayWithHoles_js__WEBPACK_IMPORTED_MODULE_0__["default"])(arr) || (0,_iterableToArrayLimit_js__WEBPACK_IMPORTED_MODULE_1__["default"])(arr, i) || (0,_unsupportedIterableToArray_js__WEBPACK_IMPORTED_MODULE_2__["default"])(arr, i) || (0,_nonIterableRest_js__WEBPACK_IMPORTED_MODULE_3__["default"])();
+}
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs3/helpers/esm/typeof.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs3/helpers/esm/typeof.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _typeof)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_corejs3_core_js_symbol__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs3/core-js/symbol */ "./node_modules/@babel/runtime-corejs3/core-js/symbol.js");
+/* harmony import */ var _babel_runtime_corejs3_core_js_symbol_iterator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs3/core-js/symbol/iterator */ "./node_modules/@babel/runtime-corejs3/core-js/symbol/iterator.js");
+
+
+function _typeof(obj) {
+  "@babel/helpers - typeof";
+
+  return _typeof = "function" == typeof _babel_runtime_corejs3_core_js_symbol__WEBPACK_IMPORTED_MODULE_0__ && "symbol" == typeof _babel_runtime_corejs3_core_js_symbol_iterator__WEBPACK_IMPORTED_MODULE_1__ ? function (obj) {
+    return typeof obj;
+  } : function (obj) {
+    return obj && "function" == typeof _babel_runtime_corejs3_core_js_symbol__WEBPACK_IMPORTED_MODULE_0__ && obj.constructor === _babel_runtime_corejs3_core_js_symbol__WEBPACK_IMPORTED_MODULE_0__ && obj !== _babel_runtime_corejs3_core_js_symbol__WEBPACK_IMPORTED_MODULE_0__.prototype ? "symbol" : typeof obj;
+  }, _typeof(obj);
 }
 
 /***/ }),
@@ -115711,436 +117012,6 @@ class ShaderPass extends _Pass_js__WEBPACK_IMPORTED_MODULE_0__.Pass {
 
 /***/ }),
 
-/***/ "./node_modules/three/examples/jsm/postprocessing/UnrealBloomPass.js":
-/*!***************************************************************************!*\
-  !*** ./node_modules/three/examples/jsm/postprocessing/UnrealBloomPass.js ***!
-  \***************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "UnrealBloomPass": () => (/* binding */ UnrealBloomPass)
-/* harmony export */ });
-/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! three */ "./node_modules/three/build/three.module.js");
-/* harmony import */ var _Pass_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Pass.js */ "./node_modules/three/examples/jsm/postprocessing/Pass.js");
-/* harmony import */ var _shaders_CopyShader_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../shaders/CopyShader.js */ "./node_modules/three/examples/jsm/shaders/CopyShader.js");
-/* harmony import */ var _shaders_LuminosityHighPassShader_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../shaders/LuminosityHighPassShader.js */ "./node_modules/three/examples/jsm/shaders/LuminosityHighPassShader.js");
-/* provided dependency */ var console = __webpack_require__(/*! ./node_modules/console-browserify/index.js */ "./node_modules/console-browserify/index.js");
-
-
-
-
-
-/**
- * UnrealBloomPass is inspired by the bloom pass of Unreal Engine. It creates a
- * mip map chain of bloom textures and blurs them with different radii. Because
- * of the weighted combination of mips, and because larger blurs are done on
- * higher mips, this effect provides good quality and performance.
- *
- * Reference:
- * - https://docs.unrealengine.com/latest/INT/Engine/Rendering/PostProcessEffects/Bloom/
- */
-class UnrealBloomPass extends _Pass_js__WEBPACK_IMPORTED_MODULE_0__.Pass {
-
-	constructor( resolution, strength, radius, threshold ) {
-
-		super();
-
-		this.strength = ( strength !== undefined ) ? strength : 1;
-		this.radius = radius;
-		this.threshold = threshold;
-		this.resolution = ( resolution !== undefined ) ? new three__WEBPACK_IMPORTED_MODULE_1__.Vector2( resolution.x, resolution.y ) : new three__WEBPACK_IMPORTED_MODULE_1__.Vector2( 256, 256 );
-
-		// create color only once here, reuse it later inside the render function
-		this.clearColor = new three__WEBPACK_IMPORTED_MODULE_1__.Color( 0, 0, 0 );
-
-		// render targets
-		this.renderTargetsHorizontal = [];
-		this.renderTargetsVertical = [];
-		this.nMips = 5;
-		let resx = Math.round( this.resolution.x / 2 );
-		let resy = Math.round( this.resolution.y / 2 );
-
-		this.renderTargetBright = new three__WEBPACK_IMPORTED_MODULE_1__.WebGLRenderTarget( resx, resy );
-		this.renderTargetBright.texture.name = 'UnrealBloomPass.bright';
-		this.renderTargetBright.texture.generateMipmaps = false;
-
-		for ( let i = 0; i < this.nMips; i ++ ) {
-
-			const renderTargetHorizonal = new three__WEBPACK_IMPORTED_MODULE_1__.WebGLRenderTarget( resx, resy );
-
-			renderTargetHorizonal.texture.name = 'UnrealBloomPass.h' + i;
-			renderTargetHorizonal.texture.generateMipmaps = false;
-
-			this.renderTargetsHorizontal.push( renderTargetHorizonal );
-
-			const renderTargetVertical = new three__WEBPACK_IMPORTED_MODULE_1__.WebGLRenderTarget( resx, resy );
-
-			renderTargetVertical.texture.name = 'UnrealBloomPass.v' + i;
-			renderTargetVertical.texture.generateMipmaps = false;
-
-			this.renderTargetsVertical.push( renderTargetVertical );
-
-			resx = Math.round( resx / 2 );
-
-			resy = Math.round( resy / 2 );
-
-		}
-
-		// luminosity high pass material
-
-		if ( _shaders_LuminosityHighPassShader_js__WEBPACK_IMPORTED_MODULE_2__.LuminosityHighPassShader === undefined )
-			console.error( 'THREE.UnrealBloomPass relies on LuminosityHighPassShader' );
-
-		const highPassShader = _shaders_LuminosityHighPassShader_js__WEBPACK_IMPORTED_MODULE_2__.LuminosityHighPassShader;
-		this.highPassUniforms = three__WEBPACK_IMPORTED_MODULE_1__.UniformsUtils.clone( highPassShader.uniforms );
-
-		this.highPassUniforms[ 'luminosityThreshold' ].value = threshold;
-		this.highPassUniforms[ 'smoothWidth' ].value = 0.01;
-
-		this.materialHighPassFilter = new three__WEBPACK_IMPORTED_MODULE_1__.ShaderMaterial( {
-			uniforms: this.highPassUniforms,
-			vertexShader: highPassShader.vertexShader,
-			fragmentShader: highPassShader.fragmentShader,
-			defines: {}
-		} );
-
-		// Gaussian Blur Materials
-		this.separableBlurMaterials = [];
-		const kernelSizeArray = [ 3, 5, 7, 9, 11 ];
-		resx = Math.round( this.resolution.x / 2 );
-		resy = Math.round( this.resolution.y / 2 );
-
-		for ( let i = 0; i < this.nMips; i ++ ) {
-
-			this.separableBlurMaterials.push( this.getSeperableBlurMaterial( kernelSizeArray[ i ] ) );
-
-			this.separableBlurMaterials[ i ].uniforms[ 'texSize' ].value = new three__WEBPACK_IMPORTED_MODULE_1__.Vector2( resx, resy );
-
-			resx = Math.round( resx / 2 );
-
-			resy = Math.round( resy / 2 );
-
-		}
-
-		// Composite material
-		this.compositeMaterial = this.getCompositeMaterial( this.nMips );
-		this.compositeMaterial.uniforms[ 'blurTexture1' ].value = this.renderTargetsVertical[ 0 ].texture;
-		this.compositeMaterial.uniforms[ 'blurTexture2' ].value = this.renderTargetsVertical[ 1 ].texture;
-		this.compositeMaterial.uniforms[ 'blurTexture3' ].value = this.renderTargetsVertical[ 2 ].texture;
-		this.compositeMaterial.uniforms[ 'blurTexture4' ].value = this.renderTargetsVertical[ 3 ].texture;
-		this.compositeMaterial.uniforms[ 'blurTexture5' ].value = this.renderTargetsVertical[ 4 ].texture;
-		this.compositeMaterial.uniforms[ 'bloomStrength' ].value = strength;
-		this.compositeMaterial.uniforms[ 'bloomRadius' ].value = 0.1;
-		this.compositeMaterial.needsUpdate = true;
-
-		const bloomFactors = [ 1.0, 0.8, 0.6, 0.4, 0.2 ];
-		this.compositeMaterial.uniforms[ 'bloomFactors' ].value = bloomFactors;
-		this.bloomTintColors = [ new three__WEBPACK_IMPORTED_MODULE_1__.Vector3( 1, 1, 1 ), new three__WEBPACK_IMPORTED_MODULE_1__.Vector3( 1, 1, 1 ), new three__WEBPACK_IMPORTED_MODULE_1__.Vector3( 1, 1, 1 ), new three__WEBPACK_IMPORTED_MODULE_1__.Vector3( 1, 1, 1 ), new three__WEBPACK_IMPORTED_MODULE_1__.Vector3( 1, 1, 1 ) ];
-		this.compositeMaterial.uniforms[ 'bloomTintColors' ].value = this.bloomTintColors;
-
-		// copy material
-		if ( _shaders_CopyShader_js__WEBPACK_IMPORTED_MODULE_3__.CopyShader === undefined ) {
-
-			console.error( 'THREE.UnrealBloomPass relies on CopyShader' );
-
-		}
-
-		const copyShader = _shaders_CopyShader_js__WEBPACK_IMPORTED_MODULE_3__.CopyShader;
-
-		this.copyUniforms = three__WEBPACK_IMPORTED_MODULE_1__.UniformsUtils.clone( copyShader.uniforms );
-		this.copyUniforms[ 'opacity' ].value = 1.0;
-
-		this.materialCopy = new three__WEBPACK_IMPORTED_MODULE_1__.ShaderMaterial( {
-			uniforms: this.copyUniforms,
-			vertexShader: copyShader.vertexShader,
-			fragmentShader: copyShader.fragmentShader,
-			blending: three__WEBPACK_IMPORTED_MODULE_1__.AdditiveBlending,
-			depthTest: false,
-			depthWrite: false,
-			transparent: true
-		} );
-
-		this.enabled = true;
-		this.needsSwap = false;
-
-		this._oldClearColor = new three__WEBPACK_IMPORTED_MODULE_1__.Color();
-		this.oldClearAlpha = 1;
-
-		this.basic = new three__WEBPACK_IMPORTED_MODULE_1__.MeshBasicMaterial();
-
-		this.fsQuad = new _Pass_js__WEBPACK_IMPORTED_MODULE_0__.FullScreenQuad( null );
-
-	}
-
-	dispose() {
-
-		for ( let i = 0; i < this.renderTargetsHorizontal.length; i ++ ) {
-
-			this.renderTargetsHorizontal[ i ].dispose();
-
-		}
-
-		for ( let i = 0; i < this.renderTargetsVertical.length; i ++ ) {
-
-			this.renderTargetsVertical[ i ].dispose();
-
-		}
-
-		this.renderTargetBright.dispose();
-
-		//
-
-		for ( let i = 0; i < this.separableBlurMaterials.length; i ++ ) {
-
-			this.separableBlurMaterials[ i ].dispose();
-
-		}
-
-		this.compositeMaterial.dispose();
-		this.materialCopy.dispose();
-		this.basic.dispose();
-
-		//
-
-		this.fsQuad.dispose();
-
-	}
-
-	setSize( width, height ) {
-
-		let resx = Math.round( width / 2 );
-		let resy = Math.round( height / 2 );
-
-		this.renderTargetBright.setSize( resx, resy );
-
-		for ( let i = 0; i < this.nMips; i ++ ) {
-
-			this.renderTargetsHorizontal[ i ].setSize( resx, resy );
-			this.renderTargetsVertical[ i ].setSize( resx, resy );
-
-			this.separableBlurMaterials[ i ].uniforms[ 'texSize' ].value = new three__WEBPACK_IMPORTED_MODULE_1__.Vector2( resx, resy );
-
-			resx = Math.round( resx / 2 );
-			resy = Math.round( resy / 2 );
-
-		}
-
-	}
-
-	render( renderer, writeBuffer, readBuffer, deltaTime, maskActive ) {
-
-		renderer.getClearColor( this._oldClearColor );
-		this.oldClearAlpha = renderer.getClearAlpha();
-		const oldAutoClear = renderer.autoClear;
-		renderer.autoClear = false;
-
-		renderer.setClearColor( this.clearColor, 0 );
-
-		if ( maskActive ) renderer.state.buffers.stencil.setTest( false );
-
-		// Render input to screen
-
-		if ( this.renderToScreen ) {
-
-			this.fsQuad.material = this.basic;
-			this.basic.map = readBuffer.texture;
-
-			renderer.setRenderTarget( null );
-			renderer.clear();
-			this.fsQuad.render( renderer );
-
-		}
-
-		// 1. Extract Bright Areas
-
-		this.highPassUniforms[ 'tDiffuse' ].value = readBuffer.texture;
-		this.highPassUniforms[ 'luminosityThreshold' ].value = this.threshold;
-		this.fsQuad.material = this.materialHighPassFilter;
-
-		renderer.setRenderTarget( this.renderTargetBright );
-		renderer.clear();
-		this.fsQuad.render( renderer );
-
-		// 2. Blur All the mips progressively
-
-		let inputRenderTarget = this.renderTargetBright;
-
-		for ( let i = 0; i < this.nMips; i ++ ) {
-
-			this.fsQuad.material = this.separableBlurMaterials[ i ];
-
-			this.separableBlurMaterials[ i ].uniforms[ 'colorTexture' ].value = inputRenderTarget.texture;
-			this.separableBlurMaterials[ i ].uniforms[ 'direction' ].value = UnrealBloomPass.BlurDirectionX;
-			renderer.setRenderTarget( this.renderTargetsHorizontal[ i ] );
-			renderer.clear();
-			this.fsQuad.render( renderer );
-
-			this.separableBlurMaterials[ i ].uniforms[ 'colorTexture' ].value = this.renderTargetsHorizontal[ i ].texture;
-			this.separableBlurMaterials[ i ].uniforms[ 'direction' ].value = UnrealBloomPass.BlurDirectionY;
-			renderer.setRenderTarget( this.renderTargetsVertical[ i ] );
-			renderer.clear();
-			this.fsQuad.render( renderer );
-
-			inputRenderTarget = this.renderTargetsVertical[ i ];
-
-		}
-
-		// Composite All the mips
-
-		this.fsQuad.material = this.compositeMaterial;
-		this.compositeMaterial.uniforms[ 'bloomStrength' ].value = this.strength;
-		this.compositeMaterial.uniforms[ 'bloomRadius' ].value = this.radius;
-		this.compositeMaterial.uniforms[ 'bloomTintColors' ].value = this.bloomTintColors;
-
-		renderer.setRenderTarget( this.renderTargetsHorizontal[ 0 ] );
-		renderer.clear();
-		this.fsQuad.render( renderer );
-
-		// Blend it additively over the input texture
-
-		this.fsQuad.material = this.materialCopy;
-		this.copyUniforms[ 'tDiffuse' ].value = this.renderTargetsHorizontal[ 0 ].texture;
-
-		if ( maskActive ) renderer.state.buffers.stencil.setTest( true );
-
-		if ( this.renderToScreen ) {
-
-			renderer.setRenderTarget( null );
-			this.fsQuad.render( renderer );
-
-		} else {
-
-			renderer.setRenderTarget( readBuffer );
-			this.fsQuad.render( renderer );
-
-		}
-
-		// Restore renderer settings
-
-		renderer.setClearColor( this._oldClearColor, this.oldClearAlpha );
-		renderer.autoClear = oldAutoClear;
-
-	}
-
-	getSeperableBlurMaterial( kernelRadius ) {
-
-		return new three__WEBPACK_IMPORTED_MODULE_1__.ShaderMaterial( {
-
-			defines: {
-				'KERNEL_RADIUS': kernelRadius,
-				'SIGMA': kernelRadius
-			},
-
-			uniforms: {
-				'colorTexture': { value: null },
-				'texSize': { value: new three__WEBPACK_IMPORTED_MODULE_1__.Vector2( 0.5, 0.5 ) },
-				'direction': { value: new three__WEBPACK_IMPORTED_MODULE_1__.Vector2( 0.5, 0.5 ) }
-			},
-
-			vertexShader:
-				`varying vec2 vUv;
-				void main() {
-					vUv = uv;
-					gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
-				}`,
-
-			fragmentShader:
-				`#include <common>
-				varying vec2 vUv;
-				uniform sampler2D colorTexture;
-				uniform vec2 texSize;
-				uniform vec2 direction;
-
-				float gaussianPdf(in float x, in float sigma) {
-					return 0.39894 * exp( -0.5 * x * x/( sigma * sigma))/sigma;
-				}
-				void main() {
-					vec2 invSize = 1.0 / texSize;
-					float fSigma = float(SIGMA);
-					float weightSum = gaussianPdf(0.0, fSigma);
-					vec3 diffuseSum = texture2D( colorTexture, vUv).rgb * weightSum;
-					for( int i = 1; i < KERNEL_RADIUS; i ++ ) {
-						float x = float(i);
-						float w = gaussianPdf(x, fSigma);
-						vec2 uvOffset = direction * invSize * x;
-						vec3 sample1 = texture2D( colorTexture, vUv + uvOffset).rgb;
-						vec3 sample2 = texture2D( colorTexture, vUv - uvOffset).rgb;
-						diffuseSum += (sample1 + sample2) * w;
-						weightSum += 2.0 * w;
-					}
-					gl_FragColor = vec4(diffuseSum/weightSum, 1.0);
-				}`
-		} );
-
-	}
-
-	getCompositeMaterial( nMips ) {
-
-		return new three__WEBPACK_IMPORTED_MODULE_1__.ShaderMaterial( {
-
-			defines: {
-				'NUM_MIPS': nMips
-			},
-
-			uniforms: {
-				'blurTexture1': { value: null },
-				'blurTexture2': { value: null },
-				'blurTexture3': { value: null },
-				'blurTexture4': { value: null },
-				'blurTexture5': { value: null },
-				'bloomStrength': { value: 1.0 },
-				'bloomFactors': { value: null },
-				'bloomTintColors': { value: null },
-				'bloomRadius': { value: 0.0 }
-			},
-
-			vertexShader:
-				`varying vec2 vUv;
-				void main() {
-					vUv = uv;
-					gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
-				}`,
-
-			fragmentShader:
-				`varying vec2 vUv;
-				uniform sampler2D blurTexture1;
-				uniform sampler2D blurTexture2;
-				uniform sampler2D blurTexture3;
-				uniform sampler2D blurTexture4;
-				uniform sampler2D blurTexture5;
-				uniform float bloomStrength;
-				uniform float bloomRadius;
-				uniform float bloomFactors[NUM_MIPS];
-				uniform vec3 bloomTintColors[NUM_MIPS];
-
-				float lerpBloomFactor(const in float factor) {
-					float mirrorFactor = 1.2 - factor;
-					return mix(factor, mirrorFactor, bloomRadius);
-				}
-
-				void main() {
-					gl_FragColor = bloomStrength * ( lerpBloomFactor(bloomFactors[0]) * vec4(bloomTintColors[0], 1.0) * texture2D(blurTexture1, vUv) +
-						lerpBloomFactor(bloomFactors[1]) * vec4(bloomTintColors[1], 1.0) * texture2D(blurTexture2, vUv) +
-						lerpBloomFactor(bloomFactors[2]) * vec4(bloomTintColors[2], 1.0) * texture2D(blurTexture3, vUv) +
-						lerpBloomFactor(bloomFactors[3]) * vec4(bloomTintColors[3], 1.0) * texture2D(blurTexture4, vUv) +
-						lerpBloomFactor(bloomFactors[4]) * vec4(bloomTintColors[4], 1.0) * texture2D(blurTexture5, vUv) );
-				}`
-		} );
-
-	}
-
-}
-
-UnrealBloomPass.BlurDirectionX = new three__WEBPACK_IMPORTED_MODULE_1__.Vector2( 1.0, 0.0 );
-UnrealBloomPass.BlurDirectionY = new three__WEBPACK_IMPORTED_MODULE_1__.Vector2( 0.0, 1.0 );
-
-
-
-
-/***/ }),
-
 /***/ "./node_modules/three/examples/jsm/shaders/CopyShader.js":
 /*!***************************************************************!*\
   !*** ./node_modules/three/examples/jsm/shaders/CopyShader.js ***!
@@ -116400,4 +117271,4 @@ root.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createEle
 
 /******/ })()
 ;
-//# sourceMappingURL=bundlef1dae1e1694f0bd9a970.js.map
+//# sourceMappingURL=bundle7093beec7b148b93361e.js.map
