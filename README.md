@@ -9,7 +9,7 @@ How to use it ?
 
 How to build up environment ?
 
-1. git clone https://github.com/CJMario89/BloomWithoutChangingBackground3D.git
+1. git clone https://github.com/CJMario89/3D-Loader-Viewer.git
 2. cd BloomWithoutChangingBackground3D && npm install
 3. cd client && npm install
 4. npm start
